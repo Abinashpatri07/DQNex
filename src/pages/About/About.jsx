@@ -19,7 +19,7 @@ const About = () => {
       <OurJourney />
       {/* <AboutCTA /> */}
       {/* <FAQSection /> */}
-      <ContactSection />
+      <ContactSection showTop={true} />
     </div>
   );
 };

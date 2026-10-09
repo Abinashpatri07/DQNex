@@ -1,5 +1,7 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
 
+import logo from "../../assets/LOGO.png"; // path/extension adjust kar lena
+
 /*
   BACKGROUND IMAGE: apni image yahan rakho -> public/assets/impacthome.png
   (naam/path badalna ho to neeche BG_IMAGE change karo)
@@ -249,7 +251,12 @@ const ImpactConnect = () => {
                   style={{ background: RING_CORE }}
                 >
                   <div className="flex h-full w-full items-center justify-center rounded-full bg-[#040914] shadow-[inset_0_0_30px_rgba(59,130,246,0.75),inset_0_0_10px_rgba(140,190,255,0.6),inset_0_0_4px_rgba(255,255,255,0.5)]">
-                    <span className="text-4xl font-bold tracking-wide text-white">LOGO</span>
+                    {/* LOGO */}
+                    <img
+                      src={logo}
+                      alt="DQNeX"
+                      className="w-[70%] object-contain"
+                    />
                   </div>
                 </div>
               </div>
@@ -284,5 +291,3 @@ const ImpactConnect = () => {
 };
 
 export default ImpactConnect;
-
-

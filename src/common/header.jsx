@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 import logo from "../assets/LOGO.png"; // file ka naam/extension/path adjust kar lena
 
@@ -176,6 +176,11 @@ const ArrowRight = ({ className = "h-4 w-4" }) => (
 );
 
 const Header = () => {
+  const location = useLocation();
+  const isServicesActive = location.pathname.startsWith('/services');
+  const isPlatformsActive = location.pathname.startsWith('/platforms');
+  const isIndustriesActive = location.pathname.startsWith('/industries');
+
   const [serviceOpen, setServiceOpen] = useState(false);
   const [platformOpen, setPlatformOpen] = useState(false);
   const [industryOpen, setIndustryOpen] = useState(false);
@@ -278,7 +283,7 @@ const Header = () => {
                 }}
                 className={`${itemBase} gap-1.5 ${serviceOpen
                   ? "bg-white/[0.06] text-white"
-                  : itemIdle
+                  : isServicesActive ? itemActive : itemIdle
                   }`}
               >
                 Service
@@ -306,19 +311,19 @@ const Header = () => {
 
                   <div className="grid grid-cols-2">
                     {serviceItems.map((item, idx) => (
-                      <Link
+                      <NavLink
                         key={item.title}
                         to={item.path}
                         onClick={() => setServiceOpen(false)}
                         className={`
                           group relative flex items-start gap-3.5 p-5
                           transition-all duration-200
-                          hover:bg-white/[0.06]
+                          hover:bg-white/[0.06] [&.active]:bg-white/[0.06]
                           ${idx === 0 || idx === 2 ? "border-r border-white/[0.07]" : ""}
                           ${idx === 0 || idx === 1 ? "border-b border-white/[0.07]" : ""}
                         `}
                       >
-                        <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-[radial-gradient(ellipse_80%_60%_at_20%_40%,rgba(96,165,250,0.07),transparent_70%)]" />
+                        <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-[.active]:opacity-100 bg-[radial-gradient(ellipse_80%_60%_at_20%_40%,rgba(96,165,250,0.07),transparent_70%)]" />
 
                         <span
                           className="
@@ -329,17 +334,17 @@ const Header = () => {
                             text-[#7eb3f7]
                             shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]
                             transition-all duration-200
-                            group-hover:border-[#3b82f6]/30
-                            group-hover:bg-[#3b82f6]/10
-                            group-hover:text-[#93c5fd]
-                            group-hover:shadow-[0_0_12px_rgba(59,130,246,0.25)]
+                            group-hover:border-[#3b82f6]/30 group-[.active]:border-[#3b82f6]/30
+                            group-hover:bg-[#3b82f6]/10 group-[.active]:bg-[#3b82f6]/10
+                            group-hover:text-[#93c5fd] group-[.active]:text-[#93c5fd]
+                            group-hover:shadow-[0_0_12px_rgba(59,130,246,0.25)] group-[.active]:shadow-[0_0_12px_rgba(59,130,246,0.25)]
                           "
                         >
                           {item.icon}
                         </span>
 
                         <div className="relative z-10">
-                          <p className="text-[13.5px] font-semibold leading-tight text-white/90 transition-colors duration-200 group-hover:text-white">
+                          <p className="text-[13.5px] font-semibold leading-tight text-white/90 transition-colors duration-200 group-hover:text-white group-[.active]:text-white">
                             {item.title}
                           </p>
 
@@ -347,7 +352,7 @@ const Header = () => {
                             {item.desc}
                           </p>
                         </div>
-                      </Link>
+                      </NavLink>
                     ))}
                   </div>
 
@@ -366,7 +371,7 @@ const Header = () => {
                 }}
                 className={`${itemBase} gap-1.5 ${platformOpen
                   ? "bg-white/[0.06] text-white"
-                  : itemIdle
+                  : isPlatformsActive ? itemActive : itemIdle
                   }`}
               >
                 Platforms
@@ -394,18 +399,18 @@ const Header = () => {
 
                   <div className="grid grid-cols-2">
                     {platformItems.map((item, idx) => (
-                      <Link
+                      <NavLink
                         key={item.title}
                         to={item.path}
                         onClick={() => setPlatformOpen(false)}
                         className={`
                           group relative flex items-start gap-4 p-5
                           transition-all duration-200
-                          hover:bg-white/[0.06]
+                          hover:bg-white/[0.06] [&.active]:bg-white/[0.06]
                           ${idx === 0 ? "border-r border-white/[0.07]" : ""}
                         `}
                       >
-                        <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-[radial-gradient(ellipse_80%_60%_at_20%_40%,rgba(96,165,250,0.07),transparent_70%)]" />
+                        <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-[.active]:opacity-100 bg-[radial-gradient(ellipse_80%_60%_at_20%_40%,rgba(96,165,250,0.07),transparent_70%)]" />
 
                         <span
                           className="
@@ -416,10 +421,10 @@ const Header = () => {
                             text-[#7eb3f7]
                             shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]
                             transition-all duration-200
-                            group-hover:border-[#3b82f6]/30
-                            group-hover:bg-[#3b82f6]/10
-                            group-hover:text-[#93c5fd]
-                            group-hover:shadow-[0_0_12px_rgba(59,130,246,0.25)]
+                            group-hover:border-[#3b82f6]/30 group-[.active]:border-[#3b82f6]/30
+                            group-hover:bg-[#3b82f6]/10 group-[.active]:bg-[#3b82f6]/10
+                            group-hover:text-[#93c5fd] group-[.active]:text-[#93c5fd]
+                            group-hover:shadow-[0_0_12px_rgba(59,130,246,0.25)] group-[.active]:shadow-[0_0_12px_rgba(59,130,246,0.25)]
                           "
                         >
                           {item.icon}
@@ -427,7 +432,7 @@ const Header = () => {
 
                         <div className="relative z-10 flex-1">
                           <div className="flex items-center gap-2">
-                            <p className="text-[13.5px] font-semibold leading-tight text-white/90 transition-colors duration-200 group-hover:text-white">
+                            <p className="text-[13.5px] font-semibold leading-tight text-white/90 transition-colors duration-200 group-hover:text-white group-[.active]:text-white">
                               {item.title}
                             </p>
 
@@ -440,7 +445,7 @@ const Header = () => {
                             {item.desc}
                           </p>
                         </div>
-                      </Link>
+                      </NavLink>
                     ))}
                   </div>
 
@@ -459,7 +464,7 @@ const Header = () => {
                 }}
                 className={`${itemBase} gap-1.5 ${industryOpen
                   ? "bg-white/[0.06] text-white"
-                  : itemIdle
+                  : isIndustriesActive ? itemActive : itemIdle
                   }`}
               >
                 Industries
@@ -487,7 +492,7 @@ const Header = () => {
 
                   <div className="grid grid-cols-1">
                     {industryItems.map((item) => (
-                      <Link
+                      <NavLink
                         key={item.title}
                         to={item.path}
                         onClick={() => setIndustryOpen(false)}
@@ -496,10 +501,10 @@ const Header = () => {
                           border-b border-white/[0.07]
                           last:border-b-0
                           transition-all duration-200
-                          hover:bg-white/[0.06]
+                          hover:bg-white/[0.06] [&.active]:bg-white/[0.06]
                         "
                       >
-                        <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-[radial-gradient(ellipse_80%_60%_at_20%_40%,rgba(96,165,250,0.07),transparent_70%)]" />
+                        <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-[.active]:opacity-100 bg-[radial-gradient(ellipse_80%_60%_at_20%_40%,rgba(96,165,250,0.07),transparent_70%)]" />
 
                         <span
                           className="
@@ -510,17 +515,17 @@ const Header = () => {
                             text-[#7eb3f7]
                             shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]
                             transition-all duration-200
-                            group-hover:border-[#3b82f6]/30
-                            group-hover:bg-[#3b82f6]/10
-                            group-hover:text-[#93c5fd]
-                            group-hover:shadow-[0_0_12px_rgba(59,130,246,0.25)]
+                            group-hover:border-[#3b82f6]/30 group-[.active]:border-[#3b82f6]/30
+                            group-hover:bg-[#3b82f6]/10 group-[.active]:bg-[#3b82f6]/10
+                            group-hover:text-[#93c5fd] group-[.active]:text-[#93c5fd]
+                            group-hover:shadow-[0_0_12px_rgba(59,130,246,0.25)] group-[.active]:shadow-[0_0_12px_rgba(59,130,246,0.25)]
                           "
                         >
                           {item.icon}
                         </span>
 
                         <div className="relative z-10">
-                          <p className="text-[13.5px] font-semibold leading-tight text-white/90 transition-colors duration-200 group-hover:text-white">
+                          <p className="text-[13.5px] font-semibold leading-tight text-white/90 transition-colors duration-200 group-hover:text-white group-[.active]:text-white">
                             {item.title}
                           </p>
 
@@ -528,7 +533,7 @@ const Header = () => {
                             {item.desc}
                           </p>
                         </div>
-                      </Link>
+                      </NavLink>
                     ))}
                   </div>
 
@@ -622,7 +627,7 @@ const Header = () => {
             <div>
               <button
                 onClick={() => setMobileServiceOpen((p) => !p)}
-                className="flex w-full items-center justify-between rounded-xl px-4 py-3.5 text-[14px] font-medium text-slate-300 hover:bg-white/5 hover:text-white"
+                className={`flex w-full items-center justify-between rounded-xl px-4 py-3.5 text-[14px] font-medium transition-all duration-300 ${isServicesActive ? "bg-white/5 text-white" : "text-slate-300 hover:bg-white/5 hover:text-white"}`}
               >
                 Service
 
@@ -632,18 +637,18 @@ const Header = () => {
               {mobileServiceOpen && (
                 <div className="ml-4 mt-1 flex flex-col gap-1 border-l border-white/10 pl-3">
                   {serviceItems.map((item) => (
-                    <Link
+                    <NavLink
                       key={item.title}
                       to={item.path}
                       onClick={() => {
                         setMobileOpen(false);
                         setMobileServiceOpen(false);
                       }}
-                      className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-[13px] text-slate-400 transition-colors hover:bg-white/5 hover:text-white"
+                      className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-[13px] text-slate-400 transition-colors hover:bg-white/5 hover:text-white [&.active]:bg-white/5 [&.active]:text-white"
                     >
                       <span className="text-[#7eb3f7]">{item.icon}</span>
                       {item.title}
-                    </Link>
+                    </NavLink>
                   ))}
                 </div>
               )}
@@ -653,7 +658,7 @@ const Header = () => {
             <div>
               <button
                 onClick={() => setMobilePlatformOpen((p) => !p)}
-                className="flex w-full items-center justify-between rounded-xl px-4 py-3.5 text-[14px] font-medium text-slate-300 hover:bg-white/5 hover:text-white"
+                className={`flex w-full items-center justify-between rounded-xl px-4 py-3.5 text-[14px] font-medium transition-all duration-300 ${isPlatformsActive ? "bg-white/5 text-white" : "text-slate-300 hover:bg-white/5 hover:text-white"}`}
               >
                 Platforms
 
@@ -663,14 +668,14 @@ const Header = () => {
               {mobilePlatformOpen && (
                 <div className="ml-4 mt-1 flex flex-col gap-1 border-l border-white/10 pl-3">
                   {platformItems.map((item) => (
-                    <Link
+                    <NavLink
                       key={item.title}
                       to={item.path}
                       onClick={() => {
                         setMobileOpen(false);
                         setMobilePlatformOpen(false);
                       }}
-                      className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-[13px] text-slate-400 transition-colors hover:bg-white/5 hover:text-white"
+                      className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-[13px] text-slate-400 transition-colors hover:bg-white/5 hover:text-white [&.active]:bg-white/5 [&.active]:text-white"
                     >
                       <span className="text-[#7eb3f7]">{item.icon}</span>
 
@@ -679,7 +684,7 @@ const Header = () => {
                       <span className="ml-auto rounded-full border border-[#3b82f6]/30 bg-[#3b82f6]/10 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-[#93c5fd]">
                         {item.badge}
                       </span>
-                    </Link>
+                    </NavLink>
                   ))}
                 </div>
               )}
@@ -689,7 +694,7 @@ const Header = () => {
             <div>
               <button
                 onClick={() => setMobileIndustryOpen((p) => !p)}
-                className="flex w-full items-center justify-between rounded-xl px-4 py-3.5 text-[14px] font-medium text-slate-300 hover:bg-white/5 hover:text-white"
+                className={`flex w-full items-center justify-between rounded-xl px-4 py-3.5 text-[14px] font-medium transition-all duration-300 ${isIndustriesActive ? "bg-white/5 text-white" : "text-slate-300 hover:bg-white/5 hover:text-white"}`}
               >
                 Industries
 
@@ -699,21 +704,21 @@ const Header = () => {
               {mobileIndustryOpen && (
                 <div className="ml-4 mt-1 flex flex-col gap-1 border-l border-white/10 pl-3">
                   {industryItems.map((item) => (
-                    <Link
+                    <NavLink
                       key={item.title}
                       to={item.path}
                       onClick={() => {
                         setMobileOpen(false);
                         setMobileIndustryOpen(false);
                       }}
-                      className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-[13px] text-slate-400 transition-colors hover:bg-white/5 hover:text-white"
+                      className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-[13px] text-slate-400 transition-colors hover:bg-white/5 hover:text-white [&.active]:bg-white/5 [&.active]:text-white"
                     >
                       <span className="text-[#7eb3f7]">
                         {item.icon}
                       </span>
 
                       <span>{item.title}</span>
-                    </Link>
+                    </NavLink>
                   ))}
                 </div>
               )}

@@ -166,9 +166,9 @@ const ErpConnected = () => {
                   Not a year-long ERP Project
                 </h2>
               </div>
-              <p className="max-w-[300px] text-[11px] leading-[1.5] text-white/90 lg:mt-14">
+              {/* <p className="max-w-[300px] text-[11px] leading-[1.5] text-white/90 lg:mt-14">
                 Most ERP horror stories are implementation stories. We run setup, data and training ourselves, on your floor, until your team runs it without us.
-              </p>
+              </p> */}
             </div>
 
             <div className="mt-10 flex flex-col items-stretch gap-4 lg:flex-row lg:gap-0">

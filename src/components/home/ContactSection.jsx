@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import GlobeHero from "./GlobeHero";
 import newsletterImg from "/src/assets/homesubscribe.png";
 
-const ContactSection = () => {
+const ContactSection = ({ showTop = false }) => {
   // Newsletter globe ka mouse-tilt (degrees)
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
 
@@ -33,7 +33,8 @@ const ContactSection = () => {
       <section className="w-full max-w-[1500px] mx-auto pt-16 pb-8 px-7 sm:px-8 md:px-10 lg:px-12 xl:px-14 text-white font-sans flex flex-col gap-8">
 
         {/* Top Section */}
-        <div className="relative flex flex-col border border-gray-800/60 rounded-[32px] p-8 lg:p-12 bg-[#08101E] backdrop-blur-sm shadow-2xl overflow-hidden">
+        {showTop && (
+          <div className="relative flex flex-col border border-gray-800/60 rounded-[32px] p-8 lg:p-12 bg-[#08101E] backdrop-blur-sm shadow-2xl overflow-hidden">
 
           <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
 
@@ -145,8 +146,9 @@ const ContactSection = () => {
 
               </form>
             </div>
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Newsletter */}
         <div

@@ -21,7 +21,7 @@ const Home = () => {
       <CustomerStats />
       <InsightsTrends />
       <FAQSection />
-      <ContactSection />
+      <ContactSection showTop={true} />
     </div>
   );
 };

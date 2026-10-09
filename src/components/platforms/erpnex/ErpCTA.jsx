@@ -27,11 +27,12 @@ const ErpCTA = () => {
           <div className="w-full max-w-[520px]">
             <p className="mb-4 text-[13px] text-white/90">Ready to build?</p>
 
-            <h2 className="text-[34px] font-medium leading-[1.25] text-white md:text-[42px]">
-              See your plant in
-              <br />
-              <span className="text-[#6cc4e4]">30 minutes</span>
-            </h2>
+            <h2 className="text-[32px] font-medium leading-[1.25] text-white md:text-[38px]">
+  See your plant in
+  <br />
+  <span className="text-white">CORNeX </span>
+  <span className="text-[#6cc4e4]">30 minutes</span>
+</h2>
 
             <p className="mt-5 max-w-[470px] text-[12.5px] leading-[1.55] text-white/90">
               Get your processes, data and team on one platform with a faster,

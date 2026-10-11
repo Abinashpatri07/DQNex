@@ -1,7 +1,7 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
 
-import manufactureInsight1 from "../../../assets/industry/manufactureInsight1.png"; // adjust extension if needed
+import manufactureInsight1 from "../../../assets/Industry/manufactureInsight1.png"; // adjust extension if needed
 
 const MfgCTA = () => {
   return (

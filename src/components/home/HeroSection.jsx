@@ -86,12 +86,6 @@ const HeroSection = () => {
           >
             Lets Talk
           </Link>
-          <Link
-            to="/service"
-            className="flex h-[52px] w-full items-center justify-center rounded-full border border-[#2c4a78] bg-[#060f1d] px-14 text-[14px] font-medium text-white transition hover:bg-[#0c1a2e] sm:w-auto"
-          >
-            Explore Our Work
-          </Link>
         </div>
       </div>
 

@@ -86,21 +86,20 @@ const Column = ({ variant, subtitle, items }) => {
   const isBad = variant === "bad";
   return (
     <div
-      className={`flex w-full flex-col rounded-2xl bg-[rgba(6,12,26,0.88)] px-5 pb-5 pt-6 backdrop-blur-md lg:max-w-[340px] lg:flex-1 ${
-        isBad
+      className={`flex w-full flex-col rounded-2xl bg-[rgba(6,12,26,0.88)] px-5 pb-5 pt-6 backdrop-blur-md lg:max-w-[340px] lg:flex-1 ${isBad
           ? "border-2 border-[#e2563b]/70 shadow-[0_0_24px_rgba(226,86,59,0.25)]"
           : "border border-[#2c4a86]/60"
-      }`}
+        }`}
     >
       <div className="text-center">
         <h3 className="text-[19px] font-medium leading-tight text-white">
           {isBad ? (
             <>
-              <span className="text-[#f0623f]">Without</span> ERPNeX
+              <span className="text-[#f0623f]">Without</span> CORRNeX
             </>
           ) : (
             <>
-              <span className="text-[#8fb6ee]">With</span> ERPNeX
+              <span className="text-[#8fb6ee]">With</span> CORRNeX
             </>
           )}
         </h3>
@@ -113,11 +112,10 @@ const Column = ({ variant, subtitle, items }) => {
         {items.map((item) => (
           <li key={item.label} className="flex items-start gap-3">
             <span
-              className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border ${
-                isBad
+              className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border ${isBad
                   ? "border-[#e2563b]/40 bg-[#e2563b]/15 text-[#f0623f]"
                   : "border-[#2c5fb8]/40 bg-[#2c5fb8]/20 text-[#5b9be0]"
-              }`}
+                }`}
             >
               {item.icon}
             </span>
@@ -151,14 +149,17 @@ const ErpCompare = () => {
           {/* Badge */}
           <div className="flex justify-center">
             <span className="rounded-full border border-[#8fb6ee]/50 bg-gradient-to-b from-[#4b80c6] to-[#2f5c9c] px-7 py-[11px] text-[13px] font-medium leading-none text-white shadow-[0_6px_20px_rgba(59,109,176,0.35),inset_0_1px_0_rgba(190,215,255,0.45)]">
-              Why Choose ERPNeX
+              Why Choose CORRNeX
             </span>
           </div>
 
           {/* Heading */}
           <div className="mt-6 text-center">
             <h2 className="text-[28px] font-semibold leading-tight text-white md:text-[34px]">
-              Why Choose <span className="text-[#5ec4e0]">ERPNeX?</span>
+              Why Choose{" "}
+              <span className="bg-gradient-to-r from-[#1D4ED8] via-[#5264C9] to-[#F39301] bg-clip-text text-transparent">
+                CORRNeX?
+              </span>
             </h2>
             <p className="mx-auto mt-2 max-w-[760px] text-[12.5px] leading-relaxed text-white/90 md:text-[13px]">
               See the difference between disconnected operations and one connected manufacturing platform.

@@ -13,10 +13,9 @@ const platformItems = [
         <path d="M6 7h.01M10 7h8M6 11h.01M10 11h8" />
       </svg>
     ),
-    title: "ERPNeX",
+    title: "CORRNeX",
     desc: "Smart business management.",
     path: "/platforms/erpnex",
-    badge: "ERP",
   },
   {
     icon: (
@@ -28,7 +27,6 @@ const platformItems = [
     title: "VerifyNeX",
     desc: "Simple background verification.",
     path: "/platforms/verifynex",
-    badge: "Verify",
   },
 ];
 
@@ -436,9 +434,6 @@ const Header = () => {
                               {item.title}
                             </p>
 
-                            <span className="rounded-full border border-[#3b82f6]/30 bg-[#3b82f6]/10 px-2 py-0.5 text-[9.5px] font-semibold uppercase tracking-wider text-[#93c5fd]">
-                              {item.badge}
-                            </span>
                           </div>
 
                           <p className="mt-1 text-[11.5px] leading-snug text-[#7a92ad]">
@@ -681,9 +676,6 @@ const Header = () => {
 
                       <span>{item.title}</span>
 
-                      <span className="ml-auto rounded-full border border-[#3b82f6]/30 bg-[#3b82f6]/10 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-[#93c5fd]">
-                        {item.badge}
-                      </span>
                     </NavLink>
                   ))}
                 </div>

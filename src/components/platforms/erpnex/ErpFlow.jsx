@@ -84,19 +84,19 @@ const ErpFlow = () => {
       <div className="mx-auto max-w-[1100px] text-center">
         {/* BADGE */}
         <span className="inline-flex items-center rounded-full border border-[#8fb6ee]/50 bg-gradient-to-b from-[#4b80c6] to-[#2f5c9c] px-7 py-[11px] text-[13px] font-medium leading-none text-white shadow-[0_6px_20px_rgba(59,109,176,0.35),inset_0_1px_0_rgba(190,215,255,0.45)]">
-          How ERPNeX Works
+          How CORRNeX Works
         </span>
 
         {/* HEADING */}
         <h2 className="mt-9 text-[28px] font-semibold leading-tight text-white md:text-[34px] lg:text-[40px]">
           From Order to Delivery - In a{" "}
-          <span className="bg-gradient-to-r from-[#5db7ea] to-[#7fd0ee] bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-[#1D4ED8] to-[#F39301] bg-clip-text text-transparent">
             Simple Flow
           </span>
         </h2>
 
         <p className="mx-auto mt-3 max-w-[640px] text-[13px] leading-relaxed text-white/90 md:text-[14px]">
-          ERPNeX connects every stage of your manufacturing process, giving you complete control and real-time insights.
+          CORRNeX connects every stage of your manufacturing process, giving you complete control and real-time insights.
         </p>
 
         {/* STEPS */}

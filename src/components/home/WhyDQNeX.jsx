@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 
 const iconCls = "h-5 w-5";
 
@@ -110,16 +110,37 @@ const WhyDQNeX = () => {
         </span>
 
         <h2 className="mt-7 text-[26px] font-medium leading-tight text-white md:text-[32px] lg:text-[36px]">
-          Turning Complexity Into Simple Solutions
+          Technology Built Around Your Business Needs
         </h2>
 
         <p className="mx-auto mt-5 max-w-[760px] text-[13px] leading-[1.7] text-[#c8d1dc]">
-          DQNeX is a global IT consulting and services company delivering
-          technology-driven solutions that help organizations improve performance,
-          manage risk, and achieve sustainable growth. We partner with enterprises
-          to modernize their IT landscapes, optimize operations, and enable digital
-          transformation across business functions.
+          Every business has different goals, processes, and constraints. DQNEX works to understand your requirements and recommend a suitable solution, from a customer-facing website to a custom application or business management system.
         </p>
+        <ul className="mx-auto mt-5 max-w-[760px] space-y-3 text-left text-[13px] leading-[1.7] text-[#c8d1dc]">
+          <li className="flex items-start gap-3">
+            <span className="mt-1 text-[#4b80c6]"></span>
+            <span>
+              <strong className="text-white">Business-focused approach:</strong>{" "}
+              Start with the problem and the desired outcome.
+            </span>
+          </li>
+
+          <li className="flex items-start gap-3">
+            <span className="mt-1 text-[#4b80c6]"></span>
+            <span>
+              <strong className="text-white">Purpose-built solutions:</strong>{" "}
+              Match the technology to the actual requirement.
+            </span>
+          </li>
+
+          <li className="flex items-start gap-3">
+            <span className="mt-1 text-[#4b80c6]"></span>
+            <span>
+              <strong className="text-white">A clear delivery process:</strong>{" "}
+              Define scope, milestones, testing, and handover.
+            </span>
+          </li>
+        </ul>
       </div>
 
       {/* ── SCROLLING CARDS ────────────────────────────────────── */}
@@ -155,5 +176,4 @@ const WhyDQNeX = () => {
 };
 
 export default WhyDQNeX;
-
 

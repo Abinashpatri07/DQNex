@@ -6,11 +6,11 @@ import React, { useEffect, useRef, useState } from "react";
   Logo na mile to niche colored text dikhega.
 */
 const brands = [
-  { name: "TATA", logo: "/assets/brands/tata.png", color: "#2f7fd1" },
-  { name: "NewsClick", logo: "/assets/brands/newsclick.png", color: "#e2264d" },
-  { name: "PixInsight", logo: "/assets/brands/pixinsight.png", color: "#f97316" },
+  { name: "Ritikam", logo: "/assets/brands/tata.png", color: "#d17b2f" },
+  { name: "Hedgeveify", logo: "/assets/brands/newsclick.png", color: "#26b0e2" },
+  { name: "Our Group", logo: "/assets/brands/pixinsight.png", color: "#1b7313" },
   { name: "Univest", logo: "/assets/brands/univest.png", color: "#1f9d55" },
-  { name: "TamuHack", logo: "/assets/brands/tamuhack.png", color: "#5b6b8c" },
+  { name: "Climamax", logo: "/assets/brands/tamuhack.png", color: "#5b6b8c" },
 ];
 
 const BrandItem = ({ name, logo, color }) => {

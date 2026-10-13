@@ -49,9 +49,9 @@ const cards = [
     desc: "We turn complex challenges into clear opportunities",
     pos: "lg:left-[5%] lg:top-[35px] lg:h-[130px]",
     from: [-280, -30], delay: 0,
-    box: "border-[#3fa2ff] from-[#1461f0]/70 to-[#0a2f8f]/60 shadow-[0_0_26px_rgba(63,162,255,0.55),inset_0_0_26px_rgba(90,180,255,0.6),inset_0_0_6px_rgba(150,210,255,0.9)]",
-    tagColor: "text-[#a9d4ff]",
-    badge: "border-[#5aa9e8]/60 bg-[#0d2a4f]/90 text-[#cfe6ff]",
+    box: "border-[#557BA8]/70 from-[#263F5C]/80 to-[#111F32]/90 shadow-[0_4px_18px_rgba(0,0,0,0.18),inset_0_0_14px_rgba(85,123,168,0.08)]",
+    tagColor: "text-[#B5C9E2]",
+    badge: "border-[#557BA8]/50 bg-[#1C3047]/95 text-[#C9D9EC]",
     icon: (
       <svg {...svgProps}>
         <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
@@ -66,9 +66,9 @@ const cards = [
     desc: "We connect the right tools, platforms, and systems, to make it possible",
     pos: "lg:right-[5%] lg:top-[35px] lg:h-[130px]",
     from: [280, -30], delay: 0.08,
-    box: "border-[#a78bfa] from-[#6d43f5]/65 to-[#2f1c7d]/60 shadow-[0_0_26px_rgba(167,139,250,0.5),inset_0_0_26px_rgba(180,155,255,0.55),inset_0_0_6px_rgba(210,195,255,0.9)]",
-    tagColor: "text-[#d3c4ff]",
-    badge: "border-[#a58af0]/60 bg-[#2a2058]/90 text-[#e2d8ff]",
+    box: "border-[#766A9B]/70 from-[#352F4A]/80 to-[#191725]/90 shadow-[0_4px_18px_rgba(0,0,0,0.18),inset_0_0_14px_rgba(118,106,155,0.08)]",
+    tagColor: "text-[#C7BDE0]",
+    badge: "border-[#766A9B]/50 bg-[#29243A]/95 text-[#D8D0EC]",
     icon: (
       <svg {...svgProps}>
         <polygon points="12 2 2 7 12 12 22 7 12 2" />
@@ -83,9 +83,9 @@ const cards = [
     desc: "We bring together the right talent, perspectives, and",
     pos: "lg:left-[5%] lg:top-[195px] lg:h-[130px]",
     from: [-320, 40], delay: 0.16,
-    box: "border-[#2ee6c5] from-[#12b8a0]/65 to-[#0a5a55]/60 shadow-[0_0_26px_rgba(46,230,197,0.5),inset_0_0_26px_rgba(60,240,205,0.55),inset_0_0_6px_rgba(160,255,238,0.9)]",
-    tagColor: "text-[#9df5e6]",
-    badge: "border-[#4ad9bf]/55 bg-[#0d4a48]/90 text-[#d3fff6]",
+    box: "border-[#4E8C83]/70 from-[#203F3B]/80 to-[#112522]/90 shadow-[0_4px_18px_rgba(0,0,0,0.18),inset_0_0_14px_rgba(78,140,131,0.08)]",
+    tagColor: "text-[#A9D2C9]",
+    badge: "border-[#4E8C83]/50 bg-[#19332F]/95 text-[#C4E3DC]",
     icon: (
       <svg {...svgProps}>
         <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
@@ -101,9 +101,9 @@ const cards = [
     desc: "We turn complex challenges into clear opportunities",
     pos: "lg:right-[5%] lg:top-[195px] lg:h-[130px]",
     from: [320, 40], delay: 0.24,
-    box: "border-[#fbbf24] from-[#c98a1e]/60 to-[#6e4712]/60 shadow-[0_0_26px_rgba(251,191,36,0.5),inset_0_0_26px_rgba(255,200,60,0.6),inset_0_0_6px_rgba(255,225,140,0.9)]",
-    tagColor: "text-[#fcd86b]",
-    badge: "border-[#e2b04a]/60 bg-[#4a3512]/90 text-[#ffeeb8]",
+    box: "border-[#9B8154]/70 from-[#453923]/80 to-[#211C13]/90 shadow-[0_4px_18px_rgba(0,0,0,0.18),inset_0_0_14px_rgba(155,129,84,0.08)]",
+    tagColor: "text-[#D9C49B]",
+    badge: "border-[#9B8154]/50 bg-[#352B1B]/95 text-[#E8D7B5]",
     icon: (
       <svg {...svgProps}>
         <path d="M3 3v18h18" />
@@ -118,9 +118,9 @@ const cards = [
     pos: "lg:top-[350px] lg:h-[115px]",
     center: true,
     from: [0, 170], delay: 0.32,
-    box: "border-[#ff6b5b] from-[#e2452f]/70 to-[#8a2219]/60 shadow-[0_0_26px_rgba(255,107,91,0.5),inset_0_0_26px_rgba(255,120,100,0.55),inset_0_0_6px_rgba(255,190,180,0.9)]",
-    tagColor: "text-[#ffb3a8]",
-    badge: "border-[#ff8577]/60 bg-[#5a201c]/90 text-[#ffd9d3]",
+    box: "border-[#A66F70]/70 from-[#482D32]/80 to-[#24171C]/90 shadow-[0_4px_18px_rgba(0,0,0,0.18),inset_0_0_14px_rgba(166,111,112,0.08)]",
+    tagColor: "text-[#DDB5B5]",
+    badge: "border-[#A66F70]/50 bg-[#382126]/95 text-[#E8C9C9]",
     icon: (
       <svg {...svgProps}>
         <circle cx="12" cy="12" r="10" />

@@ -38,27 +38,45 @@ const flowSteps = [
 ];
 
 const roles = [
-  { role: "Owner", desc: "Track business status and approvals", iconBg: "#cfd9ec", color: "#3b5b99",
-    icon: <S size="h-[18px] w-[18px]"><circle cx="12" cy="8" r="4" /><path d="M4 21c.6-4 4-6 8-6s7.4 2 8 6" /></S> },
-  { role: "Purchasing Head", desc: "Manage purchase requirements", iconBg: "#dccdf3", color: "#7a4cc0",
-    icon: <S size="h-[18px] w-[18px]"><circle cx="9" cy="20" r="1.5" /><circle cx="18" cy="20" r="1.5" /><path d="M2 3h3l2.7 12.4a1 1 0 0 0 1 .8h8.8a1 1 0 0 0 1-.8L20 7H6" /></S> },
-  { role: "Store Manager", desc: "Confirm stock & manage materials", iconBg: "#c9eadf", color: "#2f8a6e",
-    icon: <S size="h-[18px] w-[18px]"><path d="M3 9l1.5-5h15L21 9" /><path d="M4 9v11h16V9" /><path d="M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0" /><path d="M9 15c.8 1 2 1 3 1s2.2 0 3-1" /></S> },
-  { role: "Accounts", desc: "Verify billing & payments", iconBg: "#f2dcc0", color: "#b87a2c",
-    icon: <S size="h-[18px] w-[18px]"><path d="M14 3H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7z" /><path d="M9 11h6M9 15h3" /></S> },
-  { role: "Dispatch", desc: "Schedule and complete delivery", iconBg: "#d3dbe8", color: "#41639c",
-    icon: <S size="h-[18px] w-[18px]"><path d="M14 17V6a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v11h2" /><path d="M14 8h4l3 4v5h-2" /><circle cx="7" cy="17" r="2" /><circle cx="17" cy="17" r="2" /></S> },
+  {
+    role: "Owner", desc: "Track business status and approvals", iconBg: "#cfd9ec", color: "#3b5b99",
+    icon: <S size="h-[18px] w-[18px]"><circle cx="12" cy="8" r="4" /><path d="M4 21c.6-4 4-6 8-6s7.4 2 8 6" /></S>
+  },
+  {
+    role: "Purchasing Head", desc: "Manage purchase requirements", iconBg: "#dccdf3", color: "#7a4cc0",
+    icon: <S size="h-[18px] w-[18px]"><circle cx="9" cy="20" r="1.5" /><circle cx="18" cy="20" r="1.5" /><path d="M2 3h3l2.7 12.4a1 1 0 0 0 1 .8h8.8a1 1 0 0 0 1-.8L20 7H6" /></S>
+  },
+  {
+    role: "Store Manager", desc: "Confirm stock & manage materials", iconBg: "#c9eadf", color: "#2f8a6e",
+    icon: <S size="h-[18px] w-[18px]"><path d="M3 9l1.5-5h15L21 9" /><path d="M4 9v11h16V9" /><path d="M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0" /><path d="M9 15c.8 1 2 1 3 1s2.2 0 3-1" /></S>
+  },
+  {
+    role: "Accounts", desc: "Verify billing & payments", iconBg: "#f2dcc0", color: "#b87a2c",
+    icon: <S size="h-[18px] w-[18px]"><path d="M14 3H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7z" /><path d="M9 11h6M9 15h3" /></S>
+  },
+  {
+    role: "Dispatch", desc: "Schedule and complete delivery", iconBg: "#d3dbe8", color: "#41639c",
+    icon: <S size="h-[18px] w-[18px]"><path d="M14 17V6a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v11h2" /><path d="M14 8h4l3 4v5h-2" /><circle cx="7" cy="17" r="2" /><circle cx="17" cy="17" r="2" /></S>
+  },
 ];
 
 const weekSteps = [
-  { week: "WEEK 1", label: "Setup", num: "01", circle: "linear-gradient(180deg,#2f7bff,#1b4fd8)", border: "rgba(59,130,246,0.55)", color: "#3b82f6", labelColor: "#9fb3cc",
-    icon: <S size="h-6 w-6"><circle cx="12" cy="12" r="3" /><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" /></S> },
-  { week: "WEEK 2", label: "Data move", num: "02", circle: "linear-gradient(180deg,#5a4ff0,#3a2fc0)", border: "rgba(99,102,241,0.55)", color: "#6d6ff5", labelColor: "#9fb3cc",
-    icon: <S size="h-6 w-6"><ellipse cx="12" cy="5" rx="8" ry="3" /><path d="M20 5v14c0 1.7-3.6 3-8 3s-8-1.3-8-3V5" /><path d="M20 12c0 1.7-3.6 3-8 3s-8-1.3-8-3" /></S> },
-  { week: "WEEK 3", label: "Floor training", num: "03", circle: "linear-gradient(180deg,#14a3a3,#0b6f78)", border: "rgba(45,212,191,0.5)", color: "#2dd4bf", labelColor: "#9fb3cc",
-    icon: <S size="h-6 w-6"><circle cx="12" cy="8" r="3" /><path d="M7 20c.4-3 2.4-4.5 5-4.5s4.6 1.5 5 4.5" /><path d="M4 11.5a2.5 2.5 0 0 1 2-4M20 11.5a2.5 2.5 0 0 0-2-4M3 17c.4-1.6 1.2-2.6 2.5-3M21 17c-.4-1.6-1.2-2.6-2.5-3" /></S> },
-  { week: "WEEK 4", label: "Parallel run & go-live", num: "04", circle: "linear-gradient(180deg,#9a7a35,#6b4f1c)", border: "rgba(217,164,65,0.55)", color: "#f59e0b", labelColor: "#d9a441",
-    icon: <S size="h-6 w-6"><path d="M5 15c-1.5 1.5-2 4-2 5 1 0 3.5-.5 5-2" /><path d="M14 4c3.5-.5 6 0 6 0s.5 2.5 0 6c-1 3-4 6-7 7l-5-5c1-3 4-6 6-8z" /><circle cx="15" cy="9" r="1.5" /></S> },
+  {
+    week: "WEEK 1", label: "Setup", num: "01", circle: "linear-gradient(180deg,#2f7bff,#1b4fd8)", border: "rgba(59,130,246,0.55)", color: "#3b82f6", labelColor: "#9fb3cc",
+    icon: <S size="h-6 w-6"><circle cx="12" cy="12" r="3" /><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" /></S>
+  },
+  {
+    week: "WEEK 2", label: "Data move", num: "02", circle: "linear-gradient(180deg,#5a4ff0,#3a2fc0)", border: "rgba(99,102,241,0.55)", color: "#6d6ff5", labelColor: "#9fb3cc",
+    icon: <S size="h-6 w-6"><ellipse cx="12" cy="5" rx="8" ry="3" /><path d="M20 5v14c0 1.7-3.6 3-8 3s-8-1.3-8-3V5" /><path d="M20 12c0 1.7-3.6 3-8 3s-8-1.3-8-3" /></S>
+  },
+  {
+    week: "WEEK 3", label: "Floor training", num: "03", circle: "linear-gradient(180deg,#14a3a3,#0b6f78)", border: "rgba(45,212,191,0.5)", color: "#2dd4bf", labelColor: "#9fb3cc",
+    icon: <S size="h-6 w-6"><circle cx="12" cy="8" r="3" /><path d="M7 20c.4-3 2.4-4.5 5-4.5s4.6 1.5 5 4.5" /><path d="M4 11.5a2.5 2.5 0 0 1 2-4M20 11.5a2.5 2.5 0 0 0-2-4M3 17c.4-1.6 1.2-2.6 2.5-3M21 17c-.4-1.6-1.2-2.6-2.5-3" /></S>
+  },
+  {
+    week: "WEEK 4", label: "Parallel run & go-live", num: "04", circle: "linear-gradient(180deg,#9a7a35,#6b4f1c)", border: "rgba(217,164,65,0.55)", color: "#f59e0b", labelColor: "#d9a441",
+    icon: <S size="h-6 w-6"><path d="M5 15c-1.5 1.5-2 4-2 5 1 0 3.5-.5 5-2" /><path d="M14 4c3.5-.5 6 0 6 0s.5 2.5 0 6c-1 3-4 6-7 7l-5-5c1-3 4-6 6-8z" /><circle cx="15" cy="9" r="1.5" /></S>
+  },
 ];
 
 const Pill = ({ children }) => (
@@ -77,7 +95,10 @@ const ErpConnected = () => {
         <div>
           <Pill>Our Flow</Pill>
           <h2 className="mt-7 text-[26px] font-medium leading-tight text-white md:text-[34px] lg:text-[38px]">
-            From Order to Billing — <Accent>One Connected Flow</Accent>
+            From Order to Billing —{" "}
+            <span className="bg-gradient-to-r from-[#1D4ED8] via-[#5264C9] to-[#F39301] bg-clip-text text-transparent">
+              One Connected Flow
+            </span>
           </h2>
 
           <div className="mt-7 overflow-x-auto rounded-2xl border border-[#1f3358] bg-gradient-to-b from-[#0b1a33] to-[#081326] p-3.5">
@@ -112,7 +133,10 @@ const ErpConnected = () => {
           <div className="text-center">
             <Pill>One Connected Flow</Pill>
             <h2 className="mt-8 text-[26px] font-medium leading-tight text-white md:text-[34px] lg:text-[38px]">
-              Everyone Works From the <Accent>Same Number</Accent>
+              Everyone Works From the{" "}
+              <span className="bg-gradient-to-r from-[#1D4ED8] via-[#5264C9] to-[#F39301] bg-clip-text text-transparent">
+                Same Number
+              </span>
             </h2>
             <p className="mx-auto mt-2 max-w-[600px] text-[12.5px] text-white/90 md:text-[13px]">
               One shared order record keeps every team aligned from purchase to dispatch.
@@ -128,15 +152,16 @@ const ErpConnected = () => {
                   </span>
                   <p className="text-[12.5px] font-medium leading-tight text-white">{r.role}</p>
                 </div>
-                <p className="mt-3 max-w-[140px] text-[10px] leading-[1.4] text-[#b4c0d0]">{r.desc}</p>
+                <p className="mt-3 max-w-[180px] text-[12px] leading-[1.4] text-[#b4c0d0]">{r.desc}</p>
 
                 {/* Image slot */}
-                <div className="mt-4 flex aspect-[2/1] w-full items-center justify-center rounded-lg">
+                <div className="mt-4 flex h-44 w-full items-center justify-center overflow-hidden rounded-lg sm:h-48 lg:h-52">
                   {ROLE_IMAGES[i] ? (
                     <img
                       src={ROLE_IMAGES[i]}
                       alt={r.role}
-                      className={`h-full w-full object-contain object-center ${ROLE_IMG_FIX[r.role] || ""}`}
+                      className={`block max-h-full max-w-full object-contain object-center ${ROLE_IMG_FIX[r.role] || ""
+                        }`}
                     />
                   ) : (
                     <div className="flex h-full w-full items-center justify-center rounded-lg border border-dashed border-[#2a4a86]/60 text-[10px] text-white/30">
@@ -144,6 +169,7 @@ const ErpConnected = () => {
                     </div>
                   )}
                 </div>
+
               </div>
             ))}
           </div>
@@ -161,7 +187,10 @@ const ErpConnected = () => {
               <div>
                 <p className="text-[11px] text-[#7db4ec]">The ERPNeX Go-LIVE Method</p>
                 <h2 className="mt-4 text-[28px] font-medium leading-[1.3] text-white md:text-[34px]">
-                  Live in <Accent>30 days</Accent>
+                  Live in{" "}
+                  <span className="bg-gradient-to-r from-[#1D4ED8] via-[#5264C9] to-[#F39301] bg-clip-text text-transparent">
+                    30 days
+                  </span>
                   <br />
                   Not a year-long ERP Project
                 </h2>

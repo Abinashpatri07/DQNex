@@ -79,13 +79,18 @@ const ErpHero = () => {
 
       <div className="relative z-10 mx-auto flex w-full max-w-[1400px] items-center px-6 md:px-12 lg:px-20">
         <div className="w-full max-w-[700px] py-16">
-          <p className="mb-3 text-[14px] font-medium text-[#7db4ec]">CORNeX</p>
+          <p className="mb-3 text-[14px] font-medium text-[#7db4ec]">CORRNeX</p>
+
 
           <h1 className="mb-5 text-[30px] font-semibold leading-[1.15] text-white md:text-[38px] lg:text-[44px]">
             Simplify Operations
             <br />
-            Scale <span className="text-[#5ec4e0]">Your Business</span>
+            Scale{" "}
+            <span className="bg-gradient-to-r from-[#1D4ED8] to-[#F39301] bg-clip-text text-transparent">
+              Your Business
+            </span>
           </h1>
+
 
           <p className="mb-9 max-w-[390px] text-[14px] leading-[1.6] text-white/90">
             A modern, end-to-end ERP platform built for manufacturers to

@@ -1,157 +1,357 @@
-import React, { useEffect, useRef } from "react";
 
-/* ── Quote text: hl:true wala hissa gold me reveal hoga ───────── */
-const SEGMENTS = [
-  { text: "Partnering with DQNeX has elevated our technology and operations at Jigsan.", hl: false },
+import React, { useEffect, useRef, useState } from "react";
+
+const testimonials = [
   {
-    text: "Their technical depth, precise execution, and collaborative approach consistently deliver scalable",
-    hl: true,
+    id: 1,
+    name: "Mr. Ranjan Kumar Swain",
+    designation: "Director, Jigsan Group",
+    image: "https://i.pravatar.cc/150?img=12",
+    rating: 5,
+    heading: "Trusted Partner In Our Growth Journey",
+    quote:
+      "Partnering with DQNeX has elevated our technology and operations at Jigsan. Their technical depth, precise execution, and collaborative approach consistently deliver scalable, practical solutions—making DQNeX a trusted partner in our growth and operational efficiency.",
+    highlight:
+      "Their technical depth, precise execution, and collaborative approach consistently deliver scalable",
   },
-  { text: ", practical solutions-making DQNeX a trusted partner in our growth and operational efficiency.", hl: false },
+  {
+    id: 2,
+    name: "Mr. A. Prakash Tantri",
+    designation: "Director, Ritikam",
+    image: "https://i.pravatar.cc/150?img=68",
+    rating: 5,
+    heading: "Expert Support That Accelerates Growth",
+    quote:
+      "DQNeX has been a transformative partner for Ritikam, strengthening our backend operations, improving service quality, and enabling faster decisions. Their practical, future-ready solutions and deep understanding of our brand make them a trusted contributor to our continued growth.",
+    highlight:
+      "strengthening our backend operations, improving service quality, and enabling faster decisions",
+  },
+  {
+    id: 3,
+    name: "Mr. Jajati Behera",
+    designation: "Director, Career Builder",
+    image: "https://i.pravatar.cc/150?img=33",
+    rating: 5,
+    heading: "A Reliable Partner for Digital Transformation",
+    quote:
+      "DQNeX has been a valuable technology partner, helping us streamline our processes and explore new opportunities for growth. Their practical approach, commitment to quality, and understanding of business needs make collaboration seamless. We appreciate their responsiveness on delivering solutions that create meaningful business value.",
+    highlight:
+      "valuable technology partner, streamline our processes, new opportunities for growth, commitment to quality, meaningful business value",
+  },
 ];
 
-// segments ko words me todna (comma jaise punctuation pichle word se chipka rahega)
-const WORDS = SEGMENTS.flatMap((seg) =>
-  seg.text
-    .split(" ")
-    .filter(Boolean)
-    .map((w) => ({ text: w, hl: seg.hl, glue: /^[,.;:!?]/.test(w) }))
-);
+const clamp = (value, min = 0, max = 1) =>
+  Math.min(max, Math.max(min, value));
 
-/* ── Colors: [r, g, b]  (pehle dim -> scroll par final) ───────── */
-const NORMAL = { from: [100, 110, 135], to: [226, 232, 240] }; // grey-neela -> safed
-const GOLD = { from: [107, 114, 64], to: [251, 191, 36] };     // dim olive -> gold
+const NORMAL = {
+  from: [113, 130, 151],
+  to: [226, 232, 240],
+};
 
-/* ── Scroll range: paragraph ka top viewport ke kis % par ho ─── */
-const START = 0.9;  // yahan se coloring shuru
-const END = 0.3;    // yahan tak poori ho jaye (range bada = words dheere-dheere aayenge)
-const SOFT = 1.5;   // kitne words ek saath fade honge (1 = ek-ek word, bada = line jaisa)
+const GOLD = {
+  from: [128, 116, 76],
+  to: [226, 190, 110],
+};
 
-const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
-const mix = (c, t) =>
-  `rgb(${Math.round(c.from[0] + (c.to[0] - c.from[0]) * t)}, ${Math.round(
-    c.from[1] + (c.to[1] - c.from[1]) * t
-  )}, ${Math.round(c.from[2] + (c.to[2] - c.from[2]) * t)})`;
+const mix = (colors, progress) =>
+  `rgb(${colors.from
+    .map((start, i) =>
+      Math.round(start + (colors.to[i] - start) * progress)
+    )
+    .join(", ")})`;
 
 const Testimonial = () => {
-  const pRef = useRef(null);
+  const carouselRef = useRef(null);
+  const cardRefs = useRef([]);
+  const paragraphRefs = useRef([]);
   const wordRefs = useRef([]);
+  const [activeIndex, setActiveIndex] = useState(0);
 
+  // Scroll-triggered highlighting, independently for every testimonial.
   useEffect(() => {
-    const p = pRef.current;
-    const els = wordRefs.current;
-    if (!p || !els.length) return;
+    const paint = () => {
+      const viewportHeight = window.innerHeight;
 
-    const n = els.length;
-    const paint = (progress) => {
-      els.forEach((el, i) => {
-        if (!el) return;
-        const t = clamp((progress * (n + SOFT) - i) / SOFT);
-        el.style.color = mix(WORDS[i].hl ? GOLD : NORMAL, t);
+      testimonials.forEach((testimonial, cardIndex) => {
+        const paragraph = paragraphRefs.current[cardIndex];
+        const words = wordRefs.current[cardIndex] || [];
+
+        if (!paragraph || !words.length) return;
+
+        const top = paragraph.getBoundingClientRect().top;
+        const progress = clamp(
+          (viewportHeight * 0.9 - top) /
+          (viewportHeight * 0.6)
+        );
+
+        words.forEach((element, wordIndex) => {
+          if (!element) return;
+
+          const word = element.dataset.word || "";
+          const cleanWord = word.replace(/^[^a-zA-Z0-9]+|[^a-zA-Z0-9]+$/g, "");
+
+          const highlightedWords = (testimonial.highlight || "")
+            .split(/\s+/)
+            .map((item) =>
+              item.replace(/^[^a-zA-Z0-9]+|[^a-zA-Z0-9]+$/g, "")
+            );
+
+          const isHighlighted = highlightedWords.includes(cleanWord);
+          const totalWords = words.length;
+          const wordProgress = clamp(
+            (progress * (totalWords + 1.5) - wordIndex) / 1.5
+          );
+
+          element.style.color = mix(
+            isHighlighted ? GOLD : NORMAL,
+            wordProgress
+          );
+        });
       });
     };
 
-    // reduced-motion: seedha final color
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      paint(1);
+      wordRefs.current.forEach((cardWords) => {
+        (cardWords || []).forEach((word) => {
+          if (word) word.style.color = "#e2e8f0";
+        });
+      });
       return;
     }
 
     let raf = 0;
-    const update = () => {
-      raf = 0;
-      const vh = window.innerHeight;
-      const top = p.getBoundingClientRect().top;
-      paint(clamp((vh * START - top) / (vh * (START - END))));
-    };
-    const onScroll = () => {
-      if (!raf) raf = requestAnimationFrame(update);
+
+    const schedulePaint = () => {
+      if (raf) return;
+
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        paint();
+      });
     };
 
-    update();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
+    paint();
+    window.addEventListener("scroll", schedulePaint, {
+      passive: true,
+    });
+    window.addEventListener("resize", schedulePaint);
+
     return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
+      window.removeEventListener("scroll", schedulePaint);
+      window.removeEventListener("resize", schedulePaint);
+
       if (raf) cancelAnimationFrame(raf);
     };
   }, []);
 
+  // Keep the active navigation dot in sync with the carousel.
+  const updateActiveIndex = () => {
+    const carousel = carouselRef.current;
+    const firstCard = cardRefs.current[0];
+
+    if (!carousel || !firstCard) return;
+
+    const step =
+      firstCard.getBoundingClientRect().width +
+      parseFloat(getComputedStyle(carousel).columnGap || 0);
+
+    if (step > 0) {
+      setActiveIndex(
+        clamp(Math.round(carousel.scrollLeft / step), 0, testimonials.length - 1)
+      );
+    }
+  };
+
+  const goTo = (index) => {
+    const carousel = carouselRef.current;
+    const card = cardRefs.current[index];
+
+    if (!carousel || !card) return;
+
+    carousel.scrollTo({
+      left: card.offsetLeft - carousel.offsetLeft,
+      behavior: "smooth",
+    });
+
+    setActiveIndex(index);
+  };
+
+  const move = (direction) => {
+    goTo(
+      (activeIndex + direction + testimonials.length) %
+      testimonials.length
+    );
+  };
+
   return (
-    <section className="relative w-full bg-transparent py-16">
-      <div className="mx-auto max-w-[1500px] px-7 sm:px-8 md:px-10 lg:px-12 xl:px-14">
-        {/* === TESTIMONIAL BOX === */}
-        <div className="relative flex flex-col items-center overflow-hidden rounded-[28px] border border-gray-700/50 bg-gradient-to-b from-[#0d1a30] to-[#080e1a] px-8 py-14 text-center shadow-[0_0_60px_rgba(30,64,120,0.15)]">
-          {/* Subtle top glow inside box */}
-          <div className="pointer-events-none absolute left-1/2 top-0 h-[200px] w-[600px] -translate-x-1/2 rounded-full bg-blue-600/8 blur-[80px]" />
+    <section className="relative w-full overflow-hidden bg-transparent py-16 md:py-20">
+      <div className="mx-auto max-w-[1500px] px-5 sm:px-8 lg:px-12 xl:px-14">
+        {/* Heading */}
+        <div className="mb-10 text-center md:mb-12">
+          <span className="mb-5 inline-block rounded-full border border-blue-400/30 bg-blue-500/10 px-5 py-2 text-xs font-medium tracking-wide text-blue-200">
+            WHAT OUR CUSTOMERS SAY
+          </span>
 
-          {/* Label */}
-          <div className="relative z-10 mb-8">
-            <span className="inline-block rounded-full border border-blue-400/50 bg-[#4774B8] px-5 py-2 text-sm font-medium text-white shadow-[0_0_20px_rgba(71,116,184,0.5)]">
-              What Our Customers Are Saying
-            </span>
-          </div>
-
-          {/* Opening quote */}
-          <div className="relative z-10 mb-6 select-none font-serif text-6xl leading-none text-blue-400/50">❝</div>
-
-          {/* Heading */}
-          <h2 className="relative z-10 mb-6 text-2xl font-semibold text-white md:text-3xl">
-            Trusted Partner In Our Growth Journey
+          <h2 className="text-3xl font-semibold tracking-tight text-white md:text-4xl">
+            Trusted by Our Partners
           </h2>
 
-          {/* Quote paragraph: scroll par word-by-word color aata hai */}
-          <p
-            ref={pRef}
-            className="relative z-10 mb-10 max-w-[780px] text-lg italic leading-relaxed md:text-xl"
-            aria-label={SEGMENTS.map((s) => s.text).join(" ")}
-          >
-            {WORDS.map((w, i) => (
-              <React.Fragment key={i}>
-                <span
-                  aria-hidden="true"
-                  ref={(el) => (wordRefs.current[i] = el)}
-                  style={{ color: mix(w.hl ? GOLD : NORMAL, 0) }}
-                >
-                  {w.text}
-                </span>
-                {WORDS[i + 1]?.glue ? null : " "}
-              </React.Fragment>
-            ))}
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-400 md:text-base">
+            Real partnerships. Meaningful outcomes. Lasting business impact.
           </p>
+        </div>
 
-          {/* Closing quote */}
-          <div className="relative z-10 mb-10 select-none font-serif text-6xl leading-none text-blue-400/50">❞</div>
+        {/* Carousel */}
+        <div className="relative">
+          <div
+            ref={carouselRef}
+            onScroll={updateActiveIndex}
+            className="flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
+            {testimonials.map((item, index) => {
+              const words = item.quote.split(/\s+/);
 
-          {/* Author pill */}
-          <div className="relative z-10 flex items-center gap-4 rounded-full bg-white px-6 py-3 shadow-xl">
-            <div className="h-12 w-12 overflow-hidden rounded-full bg-gray-200 ring-2 ring-blue-200/40">
-              <img
-                src="https://i.pravatar.cc/150?img=12"
-                alt="Mr. Ranjan Kumar Swain"
-                className="h-full w-full object-cover"
-              />
+              return (
+                <article
+                  key={item.id}
+                  ref={(el) => (cardRefs.current[index] = el)}
+                  className="relative flex min-w-0 basis-full snap-start flex-col overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-[#111e32]/95 via-[#0c1728]/95 to-[#080e1a]/95 p-6 shadow-[0_12px_40px_rgba(0,0,0,0.22)] transition-colors duration-300 hover:border-blue-400/25 sm:p-8 md:basis-[calc(50%-12px)] md:p-8 lg:p-9"
+                >
+                  {/* Subtle card glow */}
+                  <div className="pointer-events-none absolute -right-20 -top-24 h-48 w-48 rounded-full bg-blue-500/[0.07] blur-3xl" />
+
+                  {/* Customer details */}
+                  <div className="relative flex items-start gap-4">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="h-16 w-16 shrink-0 rounded-full border border-white/10 object-cover sm:h-[76px] sm:w-[76px]"
+                      loading="lazy"
+                    />
+
+                    <div className="min-w-0 flex-1 pt-1">
+                      <h3 className="text-base font-semibold leading-snug text-white sm:text-lg">
+                        {item.name}
+                      </h3>
+
+                      <p className="mt-1 text-xs leading-5 text-slate-400 sm:text-sm">
+                        {item.designation}
+                      </p>
+                    </div>
+
+                    <div
+                      className="flex shrink-0 gap-0.5 pt-1 text-sm text-amber-400 sm:gap-1 sm:text-base"
+                      aria-label={`${item.rating} out of 5 stars`}
+                    >
+                      {Array.from({ length: item.rating }).map((_, i) => (
+                        <span key={i} aria-hidden="true">
+                          ★
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Testimonial heading */}
+                  <h4 className="relative mt-8 text-xl font-medium leading-snug text-white sm:mt-9 sm:text-2xl">
+                    {item.heading}
+                  </h4>
+
+                  {/* Independently animated testimonial text */}
+                  <p
+                    ref={(el) => (paragraphRefs.current[index] = el)}
+                    className="relative mt-5 text-sm leading-7 sm:text-base sm:leading-[1.85]"
+                  >
+                    {words.map((word, wordIndex) => (
+                      <React.Fragment key={wordIndex}>
+                        <span
+                          ref={(el) => {
+                            if (!wordRefs.current[index]) {
+                              wordRefs.current[index] = [];
+                            }
+
+                            wordRefs.current[index][wordIndex] = el;
+                          }}
+                          data-word={word}
+                          style={{ color: mix(NORMAL, 0) }}
+                          aria-hidden="true"
+                        >
+                          {word}
+                        </span>
+                        {wordIndex < words.length - 1 ? " " : ""}
+                      </React.Fragment>
+                    ))}
+                  </p>
+
+                  {/* Bottom accent */}
+                  <div className="pointer-events-none mt-auto pt-8">
+                    <div className="h-px w-full bg-gradient-to-r from-blue-400/30 via-white/[0.08] to-transparent" />
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+
+          {/* Navigation */}
+          <div className="mt-6 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              {testimonials.map((item, index) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => goTo(index)}
+                  aria-label={`Go to testimonial ${index + 1}`}
+                  aria-current={activeIndex === index ? "true" : undefined}
+                  className={`h-2 rounded-full transition-all duration-300 ${activeIndex === index
+                      ? "w-7 bg-blue-400"
+                      : "w-2 bg-slate-600 hover:bg-slate-400"
+                    }`}
+                />
+              ))}
             </div>
-            <div className="text-left">
-              <p className="font-semibold text-slate-900">Mr. Ranjan Kumar Swain</p>
-              <p className="text-xs text-slate-500">Director, Ritikam</p>
-            </div>
-            <div className="ml-4 border-l border-gray-200 pl-4">
-              <div className="flex h-12 w-12 items-center justify-center text-orange-500">
-                <svg viewBox="0 0 24 24" fill="currentColor" className="h-10 w-10">
-                  <path d="M12 2L2 22h20L12 2zm0 4.5l6.5 13h-13L12 6.5z" />
+
+            <div className="flex gap-3">
+              <button
+                type="button"
+                onClick={() => move(-1)}
+                aria-label="Previous testimonial"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white transition hover:border-blue-400/40 hover:bg-blue-500/10"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  className="h-5 w-5"
+                >
+                  <path d="m15 18-6-6 6-6" />
                 </svg>
-              </div>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => move(1)}
+                aria-label="Next testimonial"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white transition hover:border-blue-400/40 hover:bg-blue-500/10"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  className="h-5 w-5"
+                >
+                  <path d="m9 18 6-6-6-6" />
+                </svg>
+              </button>
             </div>
           </div>
         </div>
-        {/* === END BOX === */}
       </div>
     </section>
   );
 };
 
 export default Testimonial;
+
 
 

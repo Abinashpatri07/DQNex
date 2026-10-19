@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from "react";
 import ranjanImage from "../../assets/director/Ranjan.png";
 import prakashImage from "../../assets/director/prakash.png";
@@ -187,19 +186,19 @@ const Testimonial = () => {
   };
 
   return (
-    <section className="relative w-full overflow-hidden bg-transparent py-16 md:py-20">
-      <div className="mx-auto max-w-[1500px] px-5 sm:px-8 lg:px-12 xl:px-14">
+    <section className="relative w-full overflow-hidden bg-transparent py-10 sm:py-14 md:py-20">
+      <div className="mx-auto w-full max-w-[1500px] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-14">
         {/* Heading */}
-        <div className="mb-10 text-center md:mb-12">
-          <span className="mb-5 inline-block rounded-full border border-blue-400/30 bg-blue-500/10 px-5 py-2 text-xs font-medium tracking-wide text-blue-200">
+        <div className="mb-7 text-center sm:mb-9 md:mb-12">
+          <span className="mb-4 inline-block rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-2 text-[10px] font-medium tracking-[0.12em] text-blue-200 sm:mb-5 sm:px-5 sm:text-xs">
             WHAT OUR CUSTOMERS SAY
           </span>
 
-          <h2 className="text-3xl font-semibold tracking-tight text-white md:text-4xl">
+          <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl md:text-4xl">
             Trusted by Our Partners
           </h2>
 
-          <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-400 md:text-base">
+          <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-400 sm:mt-4 sm:leading-7 md:text-base">
             Real partnerships. Meaningful outcomes. Lasting business impact.
           </p>
         </div>
@@ -209,7 +208,7 @@ const Testimonial = () => {
           <div
             ref={carouselRef}
             onScroll={updateActiveIndex}
-            className="flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            className="flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain scroll-smooth pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:gap-6"
           >
             {testimonials.map((item, index) => {
               const words = item.quote.split(/\s+/);
@@ -218,32 +217,32 @@ const Testimonial = () => {
                 <article
                   key={item.id}
                   ref={(el) => (cardRefs.current[index] = el)}
-                  className="relative flex min-w-0 basis-full snap-start flex-col overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-[#111e32]/95 via-[#0c1728]/95 to-[#080e1a]/95 p-6 shadow-[0_12px_40px_rgba(0,0,0,0.22)] transition-colors duration-300 hover:border-blue-400/25 sm:p-8 md:basis-[calc(50%-12px)] md:p-8 lg:p-9"
+                  className="relative flex min-w-0 shrink-0 basis-[calc(100%-4px)] snap-start flex-col overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-[#111e32]/95 via-[#0c1728]/95 to-[#080e1a]/95 p-6 shadow-[0_12px_40px_rgba(0,0,0,0.22)] transition-colors duration-300 hover:border-blue-400/25 p-5 sm:basis-[calc(100%-8px)] sm:p-7 md:basis-[calc(50%-12px)] md:p-8 lg:p-9"
                 >
                   {/* Subtle card glow */}
                   <div className="pointer-events-none absolute -right-20 -top-24 h-48 w-48 rounded-full bg-blue-500/[0.07] blur-3xl" />
 
                   {/* Customer details */}
-                  <div className="relative flex items-start gap-4">
+                  <div className="relative flex min-w-0 flex-wrap items-start gap-3 sm:flex-nowrap sm:gap-4">
                     <img
                       src={item.image}
                       alt={item.name}
-                      className="h-16 w-16 shrink-0 rounded-full border border-white/10 object-cover sm:h-[76px] sm:w-[76px]"
+                      className="h-14 w-14 shrink-0 rounded-full border border-white/10 object-cover sm:h-[76px] sm:w-[76px]"
                       loading="lazy"
                     />
 
-                    <div className="min-w-0 flex-1 pt-1">
-                      <h3 className="text-base font-semibold leading-snug text-white sm:text-lg">
+                    <div className="min-w-0 flex-1 pt-0.5 sm:pt-1">
+                      <h3 className="break-words text-sm font-semibold leading-snug text-white sm:text-lg">
                         {item.name}
                       </h3>
 
-                      <p className="mt-1 text-xs leading-5 text-slate-400 sm:text-sm">
+                      <p className="mt-1 break-words text-xs leading-5 text-slate-400 sm:text-sm">
                         {item.designation}
                       </p>
                     </div>
 
                     <div
-                      className="flex shrink-0 gap-0.5 pt-1 text-sm text-amber-400 sm:gap-1 sm:text-base"
+                      className="ml-auto flex shrink-0 gap-0.5 pt-1 text-sm text-amber-400 sm:ml-0 sm:gap-1 sm:text-base"
                       aria-label={`${item.rating} out of 5 stars`}
                     >
                       {Array.from({ length: item.rating }).map((_, i) => (
@@ -255,14 +254,15 @@ const Testimonial = () => {
                   </div>
 
                   {/* Testimonial heading */}
-                  <h4 className="relative mt-8 text-xl font-medium leading-snug text-white sm:mt-9 sm:text-2xl">
+                  <h4 className="relative mt-6 break-words text-lg font-medium leading-snug text-white sm:mt-8 sm:text-xl md:mt-9 md:text-2xl">
                     {item.heading}
                   </h4>
 
                   {/* Independently animated testimonial text */}
                   <p
                     ref={(el) => (paragraphRefs.current[index] = el)}
-                    className="relative mt-5 text-sm leading-7 sm:text-base sm:leading-[1.85]"
+                    aria-label={item.quote}
+                    className="relative mt-4 break-words text-sm leading-7 sm:mt-5 sm:text-base sm:leading-[1.85]"
                   >
                     {words.map((word, wordIndex) => (
                       <React.Fragment key={wordIndex}>
@@ -295,8 +295,8 @@ const Testimonial = () => {
           </div>
 
           {/* Navigation */}
-          <div className="mt-6 flex items-center justify-between">
-            <div className="flex items-center gap-2">
+          <div className="mt-4 flex items-center justify-between gap-3 sm:mt-6">
+            <div className="flex min-w-0 items-center gap-2">
               {testimonials.map((item, index) => (
                 <button
                   key={item.id}
@@ -312,12 +312,12 @@ const Testimonial = () => {
               ))}
             </div>
 
-            <div className="flex gap-3">
+            <div className="flex shrink-0 gap-2 sm:gap-3">
               <button
                 type="button"
                 onClick={() => move(-1)}
                 aria-label="Previous testimonial"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white transition hover:border-blue-400/40 hover:bg-blue-500/10"
+                className="flex h-11 w-11 touch-manipulation items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white transition hover:border-blue-400/40 hover:bg-blue-500/10"
               >
                 <svg
                   viewBox="0 0 24 24"
@@ -334,7 +334,7 @@ const Testimonial = () => {
                 type="button"
                 onClick={() => move(1)}
                 aria-label="Next testimonial"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white transition hover:border-blue-400/40 hover:bg-blue-500/10"
+                className="flex h-11 w-11 touch-manipulation items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white transition hover:border-blue-400/40 hover:bg-blue-500/10"
               >
                 <svg
                   viewBox="0 0 24 24"
@@ -355,6 +355,3 @@ const Testimonial = () => {
 };
 
 export default Testimonial;
-
-
-

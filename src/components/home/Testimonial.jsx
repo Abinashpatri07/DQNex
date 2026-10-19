@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef, useState } from "react";
-import ranjanImage from "../../assets/director/ranjan.png";
+import ranjanImage from "../../assets/director/Ranjan.png";
 import prakashImage from "../../assets/director/prakash.png";
 import jajatiImage from "../../assets/director/jajati.jpeg";
 

@@ -9,7 +9,7 @@ const brands = [
   { name: "Ritikam", logo: "/assets/brands/tata.png", color: "#d17b2f" },
   { name: "Hedgeveify", logo: "/assets/brands/newsclick.png", color: "#26b0e2" },
   { name: "Our Group", logo: "/assets/brands/pixinsight.png", color: "#1b7313" },
-  { name: "Univest", logo: "/assets/brands/univest.png", color: "#1f9d55" },
+  { name: "Career Builder", logo: "/assets/brands/univest.png", color: "#7e123f" },
   { name: "Climamax", logo: "/assets/brands/tamuhack.png", color: "#5b6b8c" },
 ];
 

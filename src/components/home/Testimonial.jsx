@@ -1,12 +1,15 @@
 
 import React, { useEffect, useRef, useState } from "react";
+import ranjanImage from "../../assets/director/ranjan.png";
+import prakashImage from "../../assets/director/prakash.png";
+import jajatiImage from "../../assets/director/jajati.jpeg";
 
 const testimonials = [
   {
     id: 1,
     name: "Mr. Ranjan Kumar Swain",
     designation: "Director, Jigsan Group",
-    image: "https://i.pravatar.cc/150?img=12",
+    image: ranjanImage,
     rating: 5,
     heading: "Trusted Partner In Our Growth Journey",
     quote:
@@ -18,11 +21,11 @@ const testimonials = [
     id: 2,
     name: "Mr. A. Prakash Tantri",
     designation: "Director, Ritikam",
-    image: "https://i.pravatar.cc/150?img=68",
+    image: prakashImage,
     rating: 5,
     heading: "Expert Support That Accelerates Growth",
     quote:
-      "DQNeX has been a transformative partner for Ritikam, strengthening our backend operations, improving service quality, and enabling faster decisions. Their practical, future-ready solutions and deep understanding of our brand make them a trusted contributor to our continued growth.",
+      "DQNeX has been a transformative partner for Ritikam, strengthening our backend operations, improving service quality, and enabling faster decisions. Their practical, future-ready solutions and deep understanding of our brand make them a trusted contributor to continued growth.",
     highlight:
       "strengthening our backend operations, improving service quality, and enabling faster decisions",
   },
@@ -30,7 +33,7 @@ const testimonials = [
     id: 3,
     name: "Mr. Jajati Behera",
     designation: "Director, Career Builder",
-    image: "https://i.pravatar.cc/150?img=33",
+    image: jajatiImage,
     rating: 5,
     heading: "A Reliable Partner for Digital Transformation",
     quote:

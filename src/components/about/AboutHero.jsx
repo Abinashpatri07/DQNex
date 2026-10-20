@@ -24,7 +24,10 @@ const AboutHero = () => {
 
       <div className="relative z-10 w-full max-w-[900px]">
         <h1 className="mb-5 text-[28px] font-semibold tracking-tight text-white md:text-[34px] lg:text-[44px]">
-          About Us
+          About{" "}
+          <span className="bg-gradient-to-r from-blue-600 via-purple-400 to-orange-500 bg-clip-text text-transparent">
+            Us
+          </span>
         </h1>
         <p className="mx-auto max-w-[750px] text-[14px] leading-relaxed text-[#d5dce6] [text-shadow:0_1px_8px_rgba(5,13,28,0.9)]">
           We combine strategy, technology, and design to help businesses solve

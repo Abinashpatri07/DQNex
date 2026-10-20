@@ -60,7 +60,10 @@ const EngHero = () => {
         <div className="relative z-10 mx-auto max-w-[1500px] text-center">
           <h1 className="mb-6 text-[28px] font-semibold leading-tight text-white md:text-[34px] lg:text-[44px]">
             Building Scalable Digital Products <br className="hidden md:block" />
-            for a <span className="text-[#3cc8d4]">Smarter Tomorrow</span>
+            for a{" "}
+            <span className="bg-gradient-to-r from-blue-600 via-purple-400 to-orange-500 bg-clip-text text-transparent">
+              Smarter Tomorrow
+            </span>
           </h1>
           <p className="mx-auto mb-10 max-w-[750px] text-[14px] leading-relaxed text-[#c8d1dc]">
             From modern web and mobile applications to enterprise platforms and legacy modernization, we engineer robust, secure and future-ready solutions that drive business growth.
@@ -84,7 +87,11 @@ const EngHero = () => {
             Our Engineering Service
           </span>
           <h2 className="mb-4 text-[26px] font-medium text-white md:text-[32px] lg:text-[36px]">
-            End-to-End <span className="text-[#3cc8d4]">Engineering</span> <br className="hidden md:block" />
+            End-to-End{" "}
+            <span className="bg-gradient-to-r from-blue-600 via-purple-400 to-orange-500 bg-clip-text text-transparent">
+              Engineering
+            </span>
+            <br className="hidden md:block" />
             Capabilities
           </h2>
           <p className="mx-auto mb-16 max-w-[650px] text-[14px] text-[#c8d1dc]">

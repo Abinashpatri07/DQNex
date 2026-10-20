@@ -22,9 +22,14 @@ const AICTA = () => {
         {/* Right — Text Content */}
         <div className="relative z-10 flex flex-col justify-center p-10 lg:p-16 w-full lg:w-1/2 lg:ml-auto">
           <p className="text-[#8aa0bc] text-sm font-medium mb-3">Ready to builds with AI?</p>
-          <h2 className="text-[26px] md:text-[30px] lg:text-[36px] font-semibold text-white mb-6 leading-tight">
-            Let's Create Intelligent <br className="hidden md:block" />
-            Solutions Together.
+          <h2 className="mb-6 text-[26px] font-semibold leading-tight text-white md:text-[30px] lg:text-[36px]">
+            Let's Create {" "}
+            <span className="bg-gradient-to-r from-blue-600 via-purple-400 to-orange-500 bg-clip-text text-transparent">
+              Intelligent <br className="hidden md:block" />
+              Solutions
+            </span>
+            {" "}
+            Together.
           </h2>
           <p className="text-[13px] text-[#c8d1dc] mb-10 max-w-[480px]">
             From idea to execution, our team is ready to help you design, build and scale AI solutions for your business.
@@ -33,7 +38,7 @@ const AICTA = () => {
           <div className="flex flex-col sm:flex-row gap-4">
             <button className="px-8 py-3.5 rounded-full bg-[#3182e0] text-white font-medium hover:bg-[#2877d8] transition-colors flex items-center justify-center gap-2">
               Get in touch
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
             </button>
             <button className="px-8 py-3.5 rounded-full border border-white/20 bg-[#050d1c]/50 text-white font-medium hover:bg-white/5 transition-colors">
               Schedule a Consultation

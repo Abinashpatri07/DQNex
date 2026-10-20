@@ -59,7 +59,9 @@ const AIHero = () => {
         <div className="relative z-10 mx-auto max-w-[1500px] text-center">
           <h1 className="mb-6 text-[28px] font-semibold leading-tight text-white md:text-[34px] lg:text-[44px]">
             Build Intelligent Systems for a <br className="hidden md:block" />
-            <span className="text-[#3cc8d4]">Smarter Tomorrow</span>
+            <span className="bg-gradient-to-r from-blue-600 via-purple-400 to-orange-500 bg-clip-text text-transparent">
+              Smarter Tomorrow
+            </span>
           </h1>
           <p className="mx-auto mb-10 max-w-[700px] text-[14px] leading-relaxed text-[#c8d1dc]">
             From custom AI development to seamless integration and autonomous agents, we help businesses unlock real value with practical, scalable AI solutions.
@@ -84,7 +86,10 @@ const AIHero = () => {
           </span>
           <h2 className="mb-4 text-[26px] font-medium text-white md:text-[32px] lg:text-[36px]">
             End-to-End <br className="hidden md:block" />
-            <span className="text-[#3cc8d4]">AI Engineering</span> Services
+            <span className="bg-gradient-to-r from-blue-600 via-purple-400 to-orange-500 bg-clip-text text-transparent">
+              AI Engineering
+            </span>{" "}
+            Services
           </h2>
           <p className="mx-auto mb-16 max-w-[650px] text-[14px] text-[#c8d1dc]">
             We combine deep technical expertise with real-world business understanding to deliver AI solutions that are secure, scalable, and impactful.

@@ -24,9 +24,13 @@ const AdvCTA = () => {
           {/* Left Text Area */}
           <div className="w-full lg:w-1/2">
             <p className="text-[#8aa0bc] text-sm font-medium mb-3">Ready to plan what Next?</p>
-            <h2 className="text-[26px] md:text-[30px] lg:text-[36px] font-semibold text-white mb-6 leading-tight">
-              Make Better Technology <br className="hidden md:block" />
-              Decisions
+            <h2 className="mb-6 text-[26px] font-semibold leading-tight text-white md:text-[30px] lg:text-[36px]">
+              Make{" "}
+              <span className="bg-gradient-to-r from-blue-600 via-purple-400 to-orange-500 bg-clip-text text-transparent">
+                Better Technology
+              </span>
+              <br className="hidden md:block" />
+              {" "}Decisions
             </h2>
             <p className="text-[15px] text-[#c8d1dc] mb-10 max-w-[500px]">
               From strategy to execution, our advisory experts are ready to help you build a clearer, smarter and more successful future.
@@ -35,7 +39,7 @@ const AdvCTA = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <button className="px-8 py-3.5 rounded-full bg-[#3182e0] text-white font-medium hover:bg-[#2877d8] transition-colors flex items-center justify-center gap-2">
                 Get in touch
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
               </button>
               <button className="px-8 py-3.5 rounded-full border border-white/20 bg-[#050d1c]/50 text-white font-medium hover:bg-white/5 transition-colors">
                 Schedule a Consultation

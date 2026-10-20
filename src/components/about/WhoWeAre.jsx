@@ -28,7 +28,10 @@ const WhoWeAre = () => {
 
           {/* HEADING */}
           <h2 className="mt-4 shrink-0 text-[26px] font-medium leading-none tracking-[-1.5px] text-white md:text-[32px] lg:text-[36px]">
-            Who We Are
+            Who{" "}
+            <span className="bg-gradient-to-r from-blue-600 via-purple-400 to-orange-500 bg-clip-text text-transparent">
+              We Are
+            </span>
           </h2>
 
           {/* PARAGRAPHS */}

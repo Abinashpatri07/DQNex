@@ -163,7 +163,10 @@ const CoreValues = () => {
         </span>
 
         <h2 className="mt-5 text-3xl font-semibold leading-tight tracking-[-1px] text-white md:text-[42px]">
-          The principles behind everything we build.
+          The principles behind{" "}
+          <span className="bg-gradient-to-r from-blue-600 via-purple-400 to-orange-500 bg-clip-text text-transparent">
+            everything we build.
+          </span>
         </h2>
       </div>
 

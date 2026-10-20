@@ -52,7 +52,9 @@ const OptHero = () => {
         <div className="relative z-10 mx-auto max-w-[1500px] text-center">
           <h1 className="mb-6 text-[28px] font-semibold leading-tight text-white md:text-[34px] lg:text-[44px]">
             Optimize Today for a <br className="hidden md:block" />
-            <span className="text-[#3cc8d4]">Stronger Tomorrow</span>
+            <span className="bg-gradient-to-r from-blue-600 via-purple-400 to-orange-500 bg-clip-text text-transparent">
+              Stronger Tomorrow
+            </span>
           </h1>
           <p className="mx-auto mb-10 max-w-[700px] text-[14px] leading-relaxed text-[#c8d1dc]">
             Keep your digital products reliable, secure and high performing with proactive support, managed services and quality assurance.
@@ -76,7 +78,11 @@ const OptHero = () => {
             Our Optimization Service
           </span>
           <h2 className="mb-4 text-[26px] font-medium text-white md:text-[32px] lg:text-[36px]">
-            End-to-End <span className="text-[#3cc8d4]">Optimization</span> <br className="hidden md:block" />
+            End-to-End{" "}
+            <span className="bg-gradient-to-r from-blue-600 via-purple-400 to-orange-500 bg-clip-text text-transparent">
+              Optimization
+            </span>
+            <br className="hidden md:block" />
             Capabilities
           </h2>
           <p className="mx-auto mb-16 max-w-[700px] text-[14px] text-[#c8d1dc]">

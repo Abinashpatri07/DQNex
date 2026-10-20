@@ -69,48 +69,51 @@ const HeroSection = () => {
       {/* TEXT CONTENT */}
       <div className="relative z-10 w-full max-w-[900px] px-6">
         <h1 className="mb-6 text-[28px] font-semibold tracking-tight text-white md:text-[34px] lg:text-[44px] lg:leading-[1.15]">
-          Turning Digital Change Into <br className="hidden md:block" />
-          Real-World Impact.
+          Turning Digital Change Into
+          <br className="hidden md:block" />
+          <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">
+            Real-World Impact.
+          </span>
         </h1>
 
-        <p className="mx-auto mb-12 max-w-[650px] text-[14px] leading-relaxed text-[#c8d1dc]">
-          We combine strategy, technology, and design to help businesses solve
-          complex challenges and move forward with confidence.
-        </p>
+      <p className="mx-auto mb-12 max-w-[650px] text-[14px] leading-relaxed text-[#c8d1dc]">
+        We combine strategy, technology, and design to help businesses solve
+        complex challenges and move forward with confidence.
+      </p>
 
-        {/* BUTTONS */}
-        <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-8">
-          <Link
-            to="/contact"
-            className="flex h-[52px] w-full items-center justify-center rounded-full bg-[#3182e0] px-14 text-[14px] font-medium text-white transition hover:bg-[#2877d8] sm:w-auto"
-          >
-            Lets Talk
-          </Link>
-        </div>
+      {/* BUTTONS */}
+      <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-8">
+        <Link
+          to="/contact"
+          className="flex h-[52px] w-full items-center justify-center rounded-full bg-[#3182e0] px-14 text-[14px] font-medium text-white transition hover:bg-[#2877d8] sm:w-auto"
+        >
+          Lets Talk
+        </Link>
+      </div>
+    </div>
+
+      {/* SCROLLING IMAGE ROWS */ }
+  <div className="marquee-wrap relative mt-16 w-full overflow-hidden">
+    {/* Soft glow behind the rows */}
+    <div className="pointer-events-none absolute inset-x-0 top-1/2 h-[60%] -translate-y-1/2 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.10),transparent_70%)]" />
+
+    <div className="relative flex flex-col gap-5">
+      {/* Upar wali row: left ki taraf */}
+      <div className="overflow-hidden">
+        <MarqueeRow images={rowTop} direction="left" />
       </div>
 
-      {/* SCROLLING IMAGE ROWS */}
-      <div className="marquee-wrap relative mt-16 w-full overflow-hidden">
-        {/* Soft glow behind the rows */}
-        <div className="pointer-events-none absolute inset-x-0 top-1/2 h-[60%] -translate-y-1/2 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.10),transparent_70%)]" />
-
-        <div className="relative flex flex-col gap-5">
-          {/* Upar wali row: left ki taraf */}
-          <div className="overflow-hidden">
-            <MarqueeRow images={rowTop} direction="left" />
-          </div>
-
-          {/* Neeche wali row: right ki taraf */}
-          <div className="overflow-hidden">
-            <MarqueeRow images={rowBottom} direction="right" />
-          </div>
-        </div>
-
-        {/* Left / right edge fade */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-[#0d172b] to-transparent sm:w-28" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#0d172b] to-transparent sm:w-28" />
+      {/* Neeche wali row: right ki taraf */}
+      <div className="overflow-hidden">
+        <MarqueeRow images={rowBottom} direction="right" />
       </div>
-    </section>
+    </div>
+
+    {/* Left / right edge fade */}
+    <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-[#0d172b] to-transparent sm:w-28" />
+    <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#0d172b] to-transparent sm:w-28" />
+  </div>
+    </section >
   );
 };
 

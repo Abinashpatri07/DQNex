@@ -195,7 +195,10 @@ const Testimonial = () => {
           </span>
 
           <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl md:text-4xl">
-            Trusted by Our Partners
+            Trusted by{" "}
+            <span className="bg-gradient-to-r from-blue-600 via-purple-400 to-orange-500 bg-clip-text text-transparent">
+              Our Partners
+            </span>
           </h2>
 
           <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-slate-400 sm:mt-4 sm:leading-7 md:text-base">
@@ -305,8 +308,8 @@ const Testimonial = () => {
                   aria-label={`Go to testimonial ${index + 1}`}
                   aria-current={activeIndex === index ? "true" : undefined}
                   className={`h-2 rounded-full transition-all duration-300 ${activeIndex === index
-                      ? "w-7 bg-blue-400"
-                      : "w-2 bg-slate-600 hover:bg-slate-400"
+                    ? "w-7 bg-blue-400"
+                    : "w-2 bg-slate-600 hover:bg-slate-400"
                     }`}
                 />
               ))}

@@ -110,7 +110,10 @@ const WhyDQNeX = () => {
         </span>
 
         <h2 className="mt-7 text-[26px] font-medium leading-tight text-white md:text-[32px] lg:text-[36px]">
-          Technology Built Around Your Business Needs
+          Technology Built Around{" "}
+          <span className="bg-gradient-to-r from-blue-600 via-purple-400 to-orange-500 bg-clip-text text-transparent">
+            Your Business Needs
+          </span>
         </h2>
 
         <p className="mx-auto mt-5 max-w-[760px] text-[13px] leading-[1.7] text-[#c8d1dc]">

@@ -70,8 +70,11 @@ const InsightsTrends = () => {
           Insights & Trends
         </div>
 
-        <h2 className="max-w-lg text-3xl font-semibold leading-tight md:text-4xl lg:text-[42px]">
-          Ideas shaping the future of technology.
+        <h2 className="max-w-lg text-3xl font-semibold leading-tight text-white md:text-4xl lg:text-[42px]">
+          Ideas shaping the{" "}
+          <span className="bg-gradient-to-r from-blue-600 via-purple-400 to-orange-500 bg-clip-text text-transparent">
+            future of technology.
+          </span>
         </h2>
 
         <button className="mt-4 flex items-center gap-2 rounded-full bg-[#4774B8] px-8 py-3 text-sm font-medium text-white shadow-lg transition-colors hover:bg-[#355d96]">
@@ -81,71 +84,71 @@ const InsightsTrends = () => {
 
       {/* Right Content - Cards (teeno cards poore dikhte hain) */}
       <div className="relative w-full lg:w-1/2" style={{ height: STACK_H * fit }}>
-       <div
-        className="absolute left-0 top-0 flex w-full justify-center"
-        style={{ height: STACK_H, transform: `scale(${fit})`, transformOrigin: "top center" }}
-       >
-        {cards.map((card, index) => {
-          const pos = (index - activeIndex + cards.length) % cards.length;
+        <div
+          className="absolute left-0 top-0 flex w-full justify-center"
+          style={{ height: STACK_H, transform: `scale(${fit})`, transformOrigin: "top center" }}
+        >
+          {cards.map((card, index) => {
+            const pos = (index - activeIndex + cards.length) % cards.length;
 
-          let styles = { transition: "all 0.7s ease-in-out" };
-          let textColor = "";
-          let iconBg = "";
+            let styles = { transition: "all 0.7s ease-in-out" };
+            let textColor = "";
+            let iconBg = "";
 
-          // Active/Front Card (Golden)
-          if (pos === 0) {
-            styles = { ...styles, top: `${TOP_ACTIVE}px`, transform: "scale(1)", zIndex: 30, opacity: 1, backgroundColor: "#FFC444" };
-            textColor = "#000000";
-            iconBg = "#1C2333";
-          }
-          // Bottom Card (White)
-          else if (pos === 1) {
-            styles = { ...styles, top: `${TOP_BOTTOM}px`, transform: "scale(0.98)", zIndex: 20, opacity: 1, backgroundColor: "#FFFFFF" };
-            textColor = "#111827";
-            iconBg = "#1C2333";
-          }
-          // Top Card (Dark)
-          else if (pos === 2) {
-            styles = { ...styles, top: `${TOP_BACK}px`, transform: "scale(0.95)", zIndex: 10, opacity: 1, backgroundColor: "#5B5A51" };
-            textColor = "#D1D5DB";
-            iconBg = "#45443D";
-          }
+            // Active/Front Card (Golden)
+            if (pos === 0) {
+              styles = { ...styles, top: `${TOP_ACTIVE}px`, transform: "scale(1)", zIndex: 30, opacity: 1, backgroundColor: "#FFC444" };
+              textColor = "#000000";
+              iconBg = "#1C2333";
+            }
+            // Bottom Card (White)
+            else if (pos === 1) {
+              styles = { ...styles, top: `${TOP_BOTTOM}px`, transform: "scale(0.98)", zIndex: 20, opacity: 1, backgroundColor: "#FFFFFF" };
+              textColor = "#111827";
+              iconBg = "#1C2333";
+            }
+            // Top Card (Dark)
+            else if (pos === 2) {
+              styles = { ...styles, top: `${TOP_BACK}px`, transform: "scale(0.95)", zIndex: 10, opacity: 1, backgroundColor: "#5B5A51" };
+              textColor = "#D1D5DB";
+              iconBg = "#45443D";
+            }
 
-          return (
-            <div
-              key={card.id}
-              className="absolute flex w-full max-w-[400px] cursor-pointer flex-col rounded-[22px] p-6 shadow-[0_20px_40px_rgba(0,0,0,0.3)]"
-              style={{ ...styles, height: CARD_H, color: textColor }}
-              onClick={() => setActiveIndex(index)}
-            >
+            return (
               <div
-                className="mb-4 flex h-11 w-11 shrink-0 items-center justify-center rounded-full"
-                style={{ backgroundColor: iconBg, color: pos === 0 || pos === 1 ? "#FFFFFF" : "#D1D5DB" }}
+                key={card.id}
+                className="absolute flex w-full max-w-[400px] cursor-pointer flex-col rounded-[22px] p-6 shadow-[0_20px_40px_rgba(0,0,0,0.3)]"
+                style={{ ...styles, height: CARD_H, color: textColor }}
+                onClick={() => setActiveIndex(index)}
               >
-                {card.icon}
-              </div>
-
-              <h3 className="mb-2 text-xl font-semibold leading-snug">{card.title}</h3>
-
-              <p
-                className="text-[14px] leading-relaxed"
-                style={{ color: pos === 0 ? "#111827" : pos === 1 ? "#4B5563" : "#9CA3AF" }}
-              >
-                {card.description}
-              </p>
-
-              <div className="mt-auto flex justify-end pt-2">
-                <button
-                  className="flex items-center gap-2 text-sm font-medium transition-opacity hover:opacity-70"
-                  style={{ color: pos === 0 || pos === 1 ? "#000000" : "#FFFFFF" }}
+                <div
+                  className="mb-4 flex h-11 w-11 shrink-0 items-center justify-center rounded-full"
+                  style={{ backgroundColor: iconBg, color: pos === 0 || pos === 1 ? "#FFFFFF" : "#D1D5DB" }}
                 >
-                  Read the Insight &rarr;
-                </button>
+                  {card.icon}
+                </div>
+
+                <h3 className="mb-2 text-xl font-semibold leading-snug">{card.title}</h3>
+
+                <p
+                  className="text-[14px] leading-relaxed"
+                  style={{ color: pos === 0 ? "#111827" : pos === 1 ? "#4B5563" : "#9CA3AF" }}
+                >
+                  {card.description}
+                </p>
+
+                <div className="mt-auto flex justify-end pt-2">
+                  <button
+                    className="flex items-center gap-2 text-sm font-medium transition-opacity hover:opacity-70"
+                    style={{ color: pos === 0 || pos === 1 ? "#000000" : "#FFFFFF" }}
+                  >
+                    Read the Insight &rarr;
+                  </button>
+                </div>
               </div>
-            </div>
-          );
-        })}
-       </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

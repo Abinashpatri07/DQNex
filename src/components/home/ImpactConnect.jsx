@@ -212,7 +212,10 @@ const ImpactConnect = () => {
       {/* HEADING */}
       <div ref={headingRef} className="mx-auto max-w-[1060px] text-center">
         <h2 className="mb-3 text-3xl font-semibold text-white md:text-4xl lg:text-[42px] lg:leading-tight">
-          Where Ideas, Technology &amp; Impact Connect.
+          Where Ideas,{" "}
+          <span className="bg-gradient-to-r from-blue-600 via-purple-400 to-orange-500 bg-clip-text text-transparent">
+            Technology &amp; Impact Connect.
+          </span>
         </h2>
         <p className="mx-auto max-w-[1000px] text-[15px] leading-[1.7] text-[#8a94a8]">
           We bring people, strategy, design, and technology together to turn

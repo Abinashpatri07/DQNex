@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import ctaBg from "../../../assets/platform/erpreadytobuild.png";
 
@@ -42,8 +43,8 @@ const ErpCTA = () => {
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <button
-                type="button"
+              <Link
+                to="/contact#contact-form"
                 className="group flex items-center justify-center gap-2 rounded-full bg-[#3f76bf] px-7 py-3 text-[13px] font-medium text-white transition-colors duration-200 hover:bg-[#4f86cf]"
               >
                 Get in touch
@@ -59,14 +60,14 @@ const ErpCTA = () => {
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="12 5 19 12 12 19" />
                 </svg>
-              </button>
+              </Link>
 
-              <button
-                type="button"
+              <Link
+                to="/contact#contact-form"
                 className="flex items-center justify-center rounded-full border border-white/20 bg-[#050d1a]/70 px-7 py-3 text-[13px] font-medium text-white transition-colors duration-200 hover:bg-white/10"
               >
                 Schedule a Consultation
-              </button>
+              </Link>
             </div>
           </div>
         </div>

@@ -34,7 +34,7 @@ const LatestInsights = () => {
         {/* Header */}
         <div className="mb-8 flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
-            <div className="mb-5 inline-block rounded-full border border-blue-400/40 bg-gradient-to-b from-[#4a7fc1] to-[#2f5a96] px-6 py-2 text-[12px] font-medium text-white shadow-[0_0_20px_rgba(59,130,246,0.25)]">
+            <div className="mb-5 inline-block rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-1.5 text-[12px] font-medium tracking-wide text-blue-300">
               Insight
             </div>
 

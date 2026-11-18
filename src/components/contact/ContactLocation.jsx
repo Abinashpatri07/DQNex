@@ -4,8 +4,9 @@ import { MapPin, Clock, Building2, ArrowRight } from "lucide-react";
 import contactMap from "../../assets/DQNeX Bengaluru Night Map.png"; // path adjust kar lena
 
 const Pill = ({ children }) => (
-  <span className="inline-flex items-center rounded-full border border-[#8fb6ee]/50 bg-gradient-to-b from-[#4b80c6] to-[#2f5c9c] px-6 py-[10px] text-[12px] font-medium leading-none text-white shadow-[0_6px_20px_rgba(59,109,176,0.3),inset_0_1px_0_rgba(190,215,255,0.45)]">
-    {children}
+  <span className="inline-flex items-center gap-1.5 rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-1.5 text-[12px] font-medium tracking-wide text-blue-300">
+    <span className="h-1.5 w-1.5 rounded-full bg-blue-400" />
+    <span>{children}</span>
   </span>
 );
 

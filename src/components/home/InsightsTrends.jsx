@@ -66,8 +66,9 @@ const InsightsTrends = () => {
     <section className="mx-auto flex w-full max-w-[1500px] flex-col items-start justify-between overflow-hidden bg-transparent px-7 py-16 text-white sm:px-8 md:px-10 lg:min-h-[100svh] lg:flex-row lg:items-center lg:px-12 xl:px-14">
       {/* Left Content (thoda right side me shift) */}
       <div className="z-10 mb-12 flex w-full flex-col items-start gap-8 lg:mb-0 lg:w-1/2 lg:pl-12 xl:pl-24">
-        <div className="rounded-full bg-[#4774B8] px-6 py-2 text-sm font-medium text-white shadow-lg">
-          Insights & Trends
+        <div className="inline-flex items-center gap-1.5 rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-1.5 text-[12px] font-medium tracking-wide text-blue-300">
+          <span className="h-1.5 w-1.5 rounded-full bg-blue-400" />
+          <span>Insights & Trends</span>
         </div>
 
         <h2 className="max-w-lg text-3xl font-semibold leading-tight text-white md:text-4xl lg:text-[42px]">

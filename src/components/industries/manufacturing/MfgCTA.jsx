@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
 import manufactureInsight1 from "../../../assets/Industry/manufactureInsight1.png"; // adjust extension if needed
@@ -35,14 +36,20 @@ const MfgCTA = () => {
           </p>
 
           <div className="flex flex-wrap gap-4">
-            <button className="flex items-center gap-3 rounded-full bg-[#3b6fb5] px-6 py-3 text-[15px] font-medium text-white transition-all hover:bg-[#4a7fc1]">
+            <Link
+              to="/contact#contact-form"
+              className="flex items-center gap-3 rounded-full bg-[#3b6fb5] px-6 py-3 text-[15px] font-medium text-white transition-all hover:bg-[#4a7fc1]"
+            >
               Get in touch
               <ArrowRight className="h-4 w-4" />
-            </button>
+            </Link>
 
-            <button className="rounded-full border border-white/15 bg-[#030f1d]/70 px-8 py-3 text-[15px] font-medium text-white backdrop-blur-sm transition-all hover:bg-white/10">
+            <Link
+              to="/contact#contact-form"
+              className="flex items-center justify-center rounded-full border border-white/15 bg-[#030f1d]/70 px-8 py-3 text-[15px] font-medium text-white backdrop-blur-sm transition-all hover:bg-white/10"
+            >
               Schedule a Consultation
-            </button>
+            </Link>
           </div>
         </div>
       </div>

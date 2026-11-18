@@ -53,7 +53,7 @@ const OurJourney = () => {
         </div>
 
         {/* ── BADGE ── */}
-        <span className="relative z-10 inline-flex items-center rounded-full border border-[#8fb6ee]/50 bg-gradient-to-b from-[#4b80c6] to-[#2f5c9c] px-7 py-[11px] font-['Poppins'] text-[13px] font-medium leading-none text-white shadow-[0_6px_20px_rgba(59,109,176,0.35),inset_0_1px_0_rgba(190,215,255,0.45)]">
+        <span className="relative z-10 inline-flex items-center rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-1.5 text-[12px] font-medium tracking-wide text-blue-300">
           Our Journey
         </span>
 

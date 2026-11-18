@@ -21,7 +21,7 @@ const WhoWeAre = () => {
         <div className="flex w-full flex-col">
           {/* BADGE */}
           <div className="shrink-0">
-            <span className="inline-flex items-center rounded-full border border-[#5f9cdc] bg-[#397bc6] px-5 py-2 text-[12px] font-medium text-white shadow-[0_0_12px_rgba(57,123,198,0.25)]">
+            <span className="inline-flex items-center rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-1.5 text-[12px] font-medium tracking-wide text-blue-300">
               Our Overview
             </span>
           </div>

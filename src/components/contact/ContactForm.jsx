@@ -21,8 +21,9 @@ const iconWrap =
   "pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-white/60";
 
 const Pill = ({ children }) => (
-  <span className="inline-flex items-center rounded-full border border-[#8fb6ee]/50 bg-gradient-to-b from-[#4b80c6] to-[#2f5c9c] px-6 py-[9px] text-[12px] font-medium leading-none text-white shadow-[0_6px_20px_rgba(59,109,176,0.3),inset_0_1px_0_rgba(190,215,255,0.45)]">
-    {children}
+  <span className="inline-flex items-center gap-1.5 rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-1.5 text-[12px] font-medium tracking-wide text-blue-300">
+    <span className="h-1.5 w-1.5 rounded-full bg-blue-400" />
+    <span>{children}</span>
   </span>
 );
 
@@ -65,7 +66,7 @@ const ContactForm = () => {
   const [message, setMessage] = useState("");
 
   return (
-    <section className="relative w-full bg-gradient-to-b from-[#050d1c] to-[#071a33] px-6 py-10 font-sans md:px-10 lg:px-14">
+    <section id="contact-form" className="relative w-full scroll-mt-24 bg-gradient-to-b from-[#050d1c] to-[#071a33] px-6 py-10 font-sans md:px-10 lg:px-14">
       <div className="mx-auto flex max-w-[1190px] flex-col gap-5 lg:flex-row lg:items-stretch">
         {/* ── Left: Form ── */}
         <div className="flex-1 rounded-[20px] border border-white/10 bg-[linear-gradient(135deg,rgba(20,55,110,0.55)_0%,rgba(8,20,40,0.85)_55%,rgba(8,18,36,0.9)_100%)] p-5 backdrop-blur-md md:p-6">
@@ -160,7 +161,7 @@ const ContactForm = () => {
               type="submit"
               className="mt-1 flex w-full items-center justify-center gap-2.5 rounded-lg bg-[#3b6fb5] py-3 text-[13px] font-medium text-white transition-colors hover:bg-[#4a7fc1]"
             >
-              Let's Talk <ArrowRight className="h-4 w-4" />
+              Send Message <ArrowRight className="h-4 w-4" />
             </button>
 
             <p className="flex items-center gap-2 text-[10px] text-[#b4c0d0]">

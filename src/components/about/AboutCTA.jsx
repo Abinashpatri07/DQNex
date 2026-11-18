@@ -9,7 +9,7 @@ const AboutCTA = () => {
         Partner with DQNeX to transform your business with reliable,
         scalable, and innovative IT solutions.
       </p>
-      <Link to="/contact" className="about-cta__btn">
+      <Link to="/contact#contact-form" className="about-cta__btn">
         Get In Touch
         <svg
           width="18"

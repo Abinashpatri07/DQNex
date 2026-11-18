@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import ctaBg from "../../../assets/platform/vnxcta.png";
 
 const BG_IMAGE = ctaBg;
@@ -43,16 +44,22 @@ const VnxCTA = () => {
           </p>
 
           <div className="mt-12 flex flex-col gap-4 sm:flex-row sm:gap-6 lg:mt-[72px]">
-            <button className="flex h-[47px] items-center justify-center gap-2.5 rounded-full bg-[#3b6db0] px-8 font-sans text-[14px] font-medium text-white shadow-[0_6px_20px_rgba(59,109,176,0.3)] transition-colors hover:bg-[#4a7ac2]">
+            <Link
+              to="/contact#contact-form"
+              className="flex h-[47px] items-center justify-center gap-2.5 rounded-full bg-[#3b6db0] px-8 font-sans text-[14px] font-medium text-white shadow-[0_6px_20px_rgba(59,109,176,0.3)] transition-colors hover:bg-[#4a7ac2]"
+            >
               Get in touch
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
                 <line x1="5" y1="12" x2="19" y2="12" />
                 <polyline points="12 5 19 12 12 19" />
               </svg>
-            </button>
-            <button className="flex h-[47px] items-center justify-center rounded-full border border-white/20 bg-[#07101f]/80 px-8 font-sans text-[14px] font-medium text-white transition-colors hover:bg-white/[0.06]">
+            </Link>
+            <Link
+              to="/contact#contact-form"
+              className="flex h-[47px] items-center justify-center rounded-full border border-white/20 bg-[#07101f]/80 px-8 font-sans text-[14px] font-medium text-white transition-colors hover:bg-white/[0.06]"
+            >
               Schedule a Consultation
-            </button>
+            </Link>
           </div>
         </div>
       </div>

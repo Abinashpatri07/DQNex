@@ -1,33 +1,32 @@
 import React, { useEffect, useRef, useState } from "react";
 
-/*
-  LOGO FILES: public/assets/brands/ folder me ye exact naam (small letters) se rakho:
-  tata.png, newsclick.png, pixinsight.png, univest.png, tamuhack.png
-  Logo na mile to niche colored text dikhega.
-*/
+import ritikamLogo from "../../assets/ritikam.png";
+import hedgeveriflyLogo from "../../assets/hedgeverifly.png";
+import climamaxLogo from "../../assets/Climamax.png";
+import careerBuilderLogo from "../../assets/career builder.png";
+
 const brands = [
-  { name: "Ritikam", logo: "/assets/brands/tata.png", color: "#d17b2f" },
-  { name: "Hedgeveify", logo: "/assets/brands/newsclick.png", color: "#26b0e2" },
-  { name: "Our Group", logo: "/assets/brands/pixinsight.png", color: "#1b7313" },
-  { name: "Career Builder", logo: "/assets/brands/univest.png", color: "#7e123f" },
-  { name: "Climamax", logo: "/assets/brands/tamuhack.png", color: "#5b6b8c" },
+  { name: "Ritikam", logo: ritikamLogo, color: "#d17b2f" },
+  { name: "Hedgeverifly", logo: hedgeveriflyLogo, color: "#26b0e2" },
+  { name: "Career Builder", logo: careerBuilderLogo, color: "#7e123f" },
+  { name: "Climamax", logo: climamaxLogo, color: "#5b6b8c" },
 ];
 
 const BrandItem = ({ name, logo, color }) => {
   const [failed, setFailed] = useState(false);
 
   return (
-    <div className="mr-16 flex shrink-0 items-center md:mr-24">
-      {!failed ? (
+    <div className="mr-14 flex shrink-0 items-center md:mr-20">
+      {!failed && logo ? (
         <img
           src={logo}
           alt={name}
-          className="h-7 w-auto max-w-none object-contain md:h-8"
+          className="h-9 w-auto max-h-11 max-w-[170px] object-contain opacity-95 transition-all duration-300 hover:opacity-100 hover:scale-105 md:h-11 md:max-w-[200px]"
           onError={() => setFailed(true)}
         />
       ) : (
         <span
-          className="whitespace-nowrap text-[22px] font-bold tracking-tight"
+          className="whitespace-nowrap text-[20px] font-bold tracking-tight text-white md:text-[22px]"
           style={{ color }}
         >
           {name}
@@ -37,23 +36,20 @@ const BrandItem = ({ name, logo, color }) => {
   );
 };
 
-// ek "half" me 2 baar brands, taaki wide screen par bhi khali jagah na dikhe
-const half = [...brands, ...brands];
+// 4 brands repeated for seamless continuous scrolling
+const half = [...brands, ...brands, ...brands];
 
 const TrustedBrands = () => {
   const trackRef = useRef(null);
 
-  // CSS keyframes pe depend nahi karta, isliye hamesha chalega.
-  // Direction: LEFT -> RIGHT. Ulta (right -> left) chahiye to
-  // dono transform values aapas me badal do.
   useEffect(() => {
     const el = trackRef.current;
     if (!el) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const anim = el.animate(
-      [{ transform: "translateX(-50%)" }, { transform: "translateX(0)" }],
-      { duration: 35000, iterations: Infinity, easing: "linear" }
+      [{ transform: "translateX(0)" }, { transform: "translateX(-50%)" }],
+      { duration: 28000, iterations: Infinity, easing: "linear" }
     );
 
     const pause = () => anim.pause();
@@ -86,5 +82,3 @@ const TrustedBrands = () => {
 };
 
 export default TrustedBrands;
-
-

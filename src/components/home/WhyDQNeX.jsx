@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 const iconCls = "h-5 w-5";
 
@@ -77,6 +77,35 @@ const WhyDQNeX = () => {
   // cards ke neeche itni extra jagah chahiye ki last card bhi
   // pinned heading ke upar se poora nikal jaye, uske baad hi next section aaye
   const [bottomSpace, setBottomSpace] = useState(112);
+  const [activeCard, setActiveCard] = useState(null);
+  const cardRefs = useRef([]);
+
+  // Mobile & Tablet ke liye: scroll hone par screen ke center wale card ko automatically golden active karo
+  useEffect(() => {
+    const isTouch = window.matchMedia("(max-width: 1023px)").matches;
+    if (!isTouch) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const title = entry.target.getAttribute("data-title");
+            if (title) setActiveCard(title);
+          }
+        });
+      },
+      {
+        rootMargin: "-20% 0px -25% 0px",
+        threshold: 0.35,
+      }
+    );
+
+    cardRefs.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   useLayoutEffect(() => {
     const el = headingRef.current;
@@ -105,8 +134,9 @@ const WhyDQNeX = () => {
         ref={headingRef}
         className="z-10 flex flex-col items-center px-6 pb-16 pt-28 text-center lg:sticky lg:top-0"
       >
-        <span className="inline-block rounded-full bg-gradient-to-b from-[#4b80c6] to-[#2f5c9c] px-[22px] py-2 text-[13px] font-medium text-white shadow-[0_6px_24px_rgba(59,109,176,0.35)]">
-          Why DQNeX Exists
+        <span className="inline-flex items-center gap-1.5 rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-1.5 text-[12px] font-medium tracking-wide text-blue-300">
+          <span className="h-1.5 w-1.5 rounded-full bg-blue-400" />
+          <span>Why DQNeX Exists</span>
         </span>
 
         <h2 className="mt-7 text-[26px] font-medium leading-tight text-white md:text-[32px] lg:text-[36px]">
@@ -152,26 +182,59 @@ const WhyDQNeX = () => {
         style={{ paddingBottom: bottomSpace }}
       >
         <div className="mx-auto mt-16 grid max-w-[940px] grid-cols-1 gap-6 sm:grid-cols-2 lg:relative lg:mt-24 lg:block lg:aspect-[925/1020]">
-          {services.map((svc) => (
-            <div key={svc.title} className={`lg:absolute lg:w-[28%] ${svc.pos}`}>
-              <div className="group relative h-full cursor-pointer overflow-hidden rounded-[24px] border border-white/[0.12] bg-[linear-gradient(145deg,rgba(255,255,255,0.10)_0%,rgba(255,255,255,0.03)_45%,rgba(255,255,255,0.05)_100%)] p-6 text-left shadow-[inset_0_1px_0_rgba(255,255,255,0.22),inset_1px_0_0_rgba(255,255,255,0.08),inset_-1px_0_0_rgba(255,255,255,0.12),0_24px_60px_rgba(0,0,0,0.5)] backdrop-blur-xl transition-[border-color,box-shadow,background-image] duration-300 hover:border-[rgba(255,205,110,0.55)] hover:bg-[linear-gradient(145deg,rgba(120,85,25,0.8)_0%,rgba(70,50,20,0.65)_100%)] hover:shadow-[inset_0_1px_0_rgba(255,220,150,0.3),0_0_70px_rgba(255,180,60,0.25)] lg:min-h-[250px]">
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_105%_35%,rgba(255,255,255,0.13),transparent_55%)]" />
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_14%_12%,rgba(150,190,255,0.28),transparent_38%)] transition-opacity duration-300 group-hover:opacity-0" />
+          {services.map((svc, idx) => {
+            const isActive = activeCard === svc.title;
+            return (
+              <div
+                key={svc.title}
+                ref={(el) => (cardRefs.current[idx] = el)}
+                data-title={svc.title}
+                onClick={() =>
+                  setActiveCard((prev) => (prev === svc.title ? null : svc.title))
+                }
+                className={`lg:absolute lg:w-[28%] ${svc.pos}`}
+              >
+                <div
+                  className={`group relative h-full cursor-pointer overflow-hidden rounded-[24px] border p-6 text-left backdrop-blur-xl transition-[border-color,box-shadow,background-image,transform] duration-300 lg:min-h-[250px] ${
+                    isActive
+                      ? "border-[rgba(255,205,110,0.55)] bg-[linear-gradient(145deg,rgba(120,85,25,0.8)_0%,rgba(70,50,20,0.65)_100%)] shadow-[inset_0_1px_0_rgba(255,220,150,0.3),0_0_70px_rgba(255,180,60,0.25)]"
+                      : "border-white/[0.12] bg-[linear-gradient(145deg,rgba(255,255,255,0.10)_0%,rgba(255,255,255,0.03)_45%,rgba(255,255,255,0.05)_100%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.22),inset_1px_0_0_rgba(255,255,255,0.08),inset_-1px_0_0_rgba(255,255,255,0.12),0_24px_60px_rgba(0,0,0,0.5)] hover:border-[rgba(255,205,110,0.55)] hover:bg-[linear-gradient(145deg,rgba(120,85,25,0.8)_0%,rgba(70,50,20,0.65)_100%)] hover:shadow-[inset_0_1px_0_rgba(255,220,150,0.3),0_0_70px_rgba(255,180,60,0.25)]"
+                  }`}
+                >
+                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_105%_35%,rgba(255,255,255,0.13),transparent_55%)]" />
+                  <div
+                    className={`pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_14%_12%,rgba(150,190,255,0.28),transparent_38%)] transition-opacity duration-300 ${
+                      isActive ? "opacity-0" : "group-hover:opacity-0"
+                    }`}
+                  />
 
-                <div className="relative mb-9 flex h-[46px] w-[46px] items-center justify-center rounded-full border border-white/25 bg-[#101c30] text-[#e6efff] shadow-[0_0_28px_rgba(255,255,255,0.28),inset_0_0_14px_rgba(255,255,255,0.14)] transition-all duration-300 group-hover:border-[#ffd27a] group-hover:bg-[#ffb938] group-hover:text-[#3b2600] group-hover:shadow-[0_0_30px_rgba(255,170,50,0.65)]">
-                  {svc.icon}
+                  <div
+                    className={`relative mb-9 flex h-[46px] w-[46px] items-center justify-center rounded-full border transition-all duration-300 ${
+                      isActive
+                        ? "border-[#ffd27a] bg-[#ffb938] text-[#3b2600] shadow-[0_0_30px_rgba(255,170,50,0.65)]"
+                        : "border-white/25 bg-[#101c30] text-[#e6efff] shadow-[0_0_28px_rgba(255,255,255,0.28),inset_0_0_14px_rgba(255,255,255,0.14)] group-hover:border-[#ffd27a] group-hover:bg-[#ffb938] group-hover:text-[#3b2600] group-hover:shadow-[0_0_30px_rgba(255,170,50,0.65)]"
+                    }`}
+                  >
+                    {svc.icon}
+                  </div>
+
+                  <h3 className="relative mb-2.5 text-[15px] font-medium leading-snug text-white">
+                    {svc.title}
+                  </h3>
+
+                  <p
+                    className={`relative m-0 bg-clip-text text-[13px] leading-relaxed text-transparent ${
+                      isActive
+                        ? "bg-[linear-gradient(180deg,rgba(255,255,255,0.95),rgba(255,255,255,0.8))]"
+                        : "bg-[linear-gradient(180deg,#ffffff_0%,#ffffff_24%,#8b95a9_48%)] group-hover:bg-[linear-gradient(180deg,rgba(255,255,255,0.95),rgba(255,255,255,0.8))]"
+                    }`}
+                  >
+                    {svc.desc}
+                  </p>
                 </div>
-
-                <h3 className="relative mb-2.5 text-[15px] font-medium leading-snug text-white">
-                  {svc.title}
-                </h3>
-
-                <p className="relative m-0 bg-[linear-gradient(180deg,#ffffff_0%,#ffffff_24%,#8b95a9_48%)] bg-clip-text text-[13px] leading-relaxed text-transparent group-hover:bg-[linear-gradient(180deg,rgba(255,255,255,0.95),rgba(255,255,255,0.8))]">
-                  {svc.desc}
-                </p>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

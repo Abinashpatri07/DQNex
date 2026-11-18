@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import aiEngineeringBg from "../../../assets/serviceai-engineering.png";
 import aiDevIcon from "../../../assets/aiengineering-aidevelopment-removebg-preview.png";
 import aiIntegrationIcon from "../../../assets/aiengineering-Aiintegration-removebg-preview.png";
@@ -68,9 +69,12 @@ const AIHero = () => {
           </p>
 
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <button className="rounded-full bg-[#3182e0] px-8 py-3.5 font-medium text-white transition-colors hover:bg-[#2877d8]">
+            <Link
+              to="/contact#contact-form"
+              className="inline-flex items-center justify-center rounded-full bg-[#3182e0] px-8 py-3.5 font-medium text-white transition-colors hover:bg-[#2877d8]"
+            >
               Talk Our AI Expert
-            </button>
+            </Link>
             <button className="rounded-full border border-white/20 bg-[#050d1c]/50 px-8 py-3.5 font-medium text-white transition-colors hover:bg-white/5">
               Explore our Work
             </button>
@@ -81,7 +85,7 @@ const AIHero = () => {
       {/* ─── CAPABILITIES SECTION (clean dark background, NO image) ─── */}
       <section className="relative w-full bg-[#040e1b] px-7 pb-10 pt-6 font-sans sm:px-8 md:px-10 md:pb-16 lg:px-12 lg:pb-24 xl:px-14">
         <div className="mx-auto max-w-[1500px] text-center">
-          <span className="mb-6 inline-flex items-center rounded-full border border-[#8fb6ee]/50 bg-gradient-to-b from-[#4b80c6] to-[#2f5c9c] px-7 py-[11px] text-[13px] font-medium leading-none text-white shadow-[0_6px_20px_rgba(59,109,176,0.35),inset_0_1px_0_rgba(190,215,255,0.45)]">
+          <span className="mb-6 inline-flex items-center rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-1.5 text-[12px] font-medium tracking-wide text-blue-300">
             Our Capabilities
           </span>
           <h2 className="mb-4 text-[26px] font-medium text-white md:text-[32px] lg:text-[36px]">

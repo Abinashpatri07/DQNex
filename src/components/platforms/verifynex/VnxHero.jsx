@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import heroBg from "../../../assets/platform/vnxhero.png";
 
 // 👉 Background image: mobile par full-bleed, desktop par natural size (edges fade hote hain)
@@ -90,9 +91,12 @@ const VnxHero = () => {
 
           {/* Buttons */}
           <div className="mb-12 flex flex-col gap-4 sm:flex-row">
-            <button className="rounded-full bg-[#4a7fc1] px-8 py-3 text-[14px] font-medium text-white transition-colors duration-200 hover:bg-[#5b90d2]">
+            <Link
+              to="/contact#contact-form"
+              className="inline-flex items-center justify-center rounded-full bg-[#4a7fc1] px-8 py-3 text-[14px] font-medium text-white transition-colors duration-200 hover:bg-[#5b90d2]"
+            >
               Request a Demo
-            </button>
+            </Link>
             <button className="rounded-full border border-white/25 bg-[#050d1c]/50 px-8 py-3 text-[14px] font-medium text-white transition-colors duration-200 hover:bg-white/10">
               Explore Features
             </button>

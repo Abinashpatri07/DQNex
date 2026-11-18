@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
+import ScrollToTop from "./common/ScrollToTop";
 import Header from "./common/header";
 import Footer from "./common/footer";
 import Home from "./pages/Home/Home";
@@ -29,6 +30,9 @@ const SimplePage = ({ title }) => {
 const App = () => {
   return (
     <div className="app bg-transparent">
+
+      {/* SCROLL TO TOP ON ROUTE CHANGE */}
+      <ScrollToTop />
 
       {/* HEADER */}
       <Header />

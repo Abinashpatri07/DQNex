@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
 // 👉 Extension (.png/.jpg/.webp) aur path apne project ke hisaab se check kar lena
@@ -36,14 +37,20 @@ const PaymentCTA = () => {
           </p>
 
           <div className="flex flex-wrap gap-4">
-            <button className="flex items-center gap-3 rounded-full bg-[#3b6fb5] px-7 py-3.5 text-[14px] font-medium text-white shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all hover:bg-[#4a7fc1]">
+            <Link
+              to="/contact#contact-form"
+              className="flex items-center gap-3 rounded-full bg-[#3b6fb5] px-7 py-3.5 text-[14px] font-medium text-white shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all hover:bg-[#4a7fc1]"
+            >
               Get in touch
               <ArrowRight className="h-4 w-4" />
-            </button>
+            </Link>
 
-            <button className="rounded-full border border-white/20 bg-[#050d1c]/60 px-7 py-3.5 text-[14px] font-medium text-white backdrop-blur-sm transition-all hover:bg-white/10">
+            <Link
+              to="/contact#contact-form"
+              className="flex items-center justify-center rounded-full border border-white/20 bg-[#050d1c]/60 px-7 py-3.5 text-[14px] font-medium text-white backdrop-blur-sm transition-all hover:bg-white/10"
+            >
               Schedule a Consultation
-            </button>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import optCTABg from "../../../assets/serviceOpt-readytoOptimize.png";
 
 const OptCTA = () => {
@@ -32,13 +33,19 @@ const OptCTA = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="px-8 py-3.5 rounded-full bg-[#3182e0] text-white font-medium hover:bg-[#2877d8] transition-colors flex items-center justify-center gap-2">
+              <Link
+                to="/contact#contact-form"
+                className="px-8 py-3.5 rounded-full bg-[#3182e0] text-white font-medium hover:bg-[#2877d8] transition-colors flex items-center justify-center gap-2"
+              >
                 Get in touch
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              </button>
-              <button className="px-8 py-3.5 rounded-full border border-white/20 bg-[#050d1c]/50 text-white font-medium hover:bg-white/5 transition-colors">
+              </Link>
+              <Link
+                to="/contact#contact-form"
+                className="px-8 py-3.5 rounded-full border border-white/20 bg-[#050d1c]/50 text-white font-medium hover:bg-white/5 transition-colors flex items-center justify-center"
+              >
                 Schedule a Consultation
-              </button>
+              </Link>
             </div>
           </div>
 

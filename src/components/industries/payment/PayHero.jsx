@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { CreditCard, ShieldCheck, Zap, Globe } from "lucide-react";
 
 // 👉 Extension (.png/.jpg/.webp) aur path apne project ke hisaab se check kar lena
@@ -49,9 +50,12 @@ const PayHero = () => {
           </p>
 
           <div className="mb-12 flex flex-wrap gap-4">
-            <button className="rounded-full bg-[#4a7fc1] px-8 py-3 text-[14px] font-medium text-white shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all hover:bg-[#5a8fd1]">
+            <Link
+              to="/contact#contact-form"
+              className="inline-flex items-center justify-center rounded-full bg-[#4a7fc1] px-8 py-3 text-[14px] font-medium text-white shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all hover:bg-[#5a8fd1]"
+            >
               Talk to an Expert
-            </button>
+            </Link>
 
             <button className="rounded-full border border-white/25 bg-[#050d1c]/50 px-8 py-3 text-[14px] font-medium text-white backdrop-blur-sm transition-all hover:bg-white/10">
               Explore Solutions

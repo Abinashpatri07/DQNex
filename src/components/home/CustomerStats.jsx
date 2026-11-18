@@ -36,23 +36,9 @@ const CustomerStats = () => {
             SECTION LABEL
         ========================== */}
         <div className="mb-10 text-left">
-          <span
-            className="
-              inline-flex
-              items-center
-              rounded-full
-              border
-              border-[#68a2de]
-              bg-[#3979c6]
-              px-4
-              py-1.5
-              text-[11px]
-              font-medium
-              text-white
-              shadow-[0_0_10px_rgba(66,140,220,0.20)]
-            "
-          >
-            What Customers Achieve
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-1.5 text-[12px] font-medium tracking-wide text-blue-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-blue-400" />
+            <span>What Customers Achieve</span>
           </span>
         </div>
 
@@ -258,16 +244,19 @@ const StatCard = ({ title, target, suffix, description }) => {
         {/* NUMBER */}
         <div
           className="
-            mt-[25px]
+            mt-4
+            sm:mt-5
             bg-gradient-to-b
             from-[#4f86ce]
             via-[#77a6dd]
             to-[#aac3e5]
             bg-clip-text
-            text-[88px]
+            text-[54px]
+            sm:text-[60px]
+            md:text-[66px]
             font-light
-            leading-[0.85]
-            tracking-[-4px]
+            leading-[0.9]
+            tracking-[-2px]
             text-transparent
           "
         >

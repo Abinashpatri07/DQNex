@@ -7,7 +7,7 @@ const OptProcess = () => {
 
         {/* Process Section */}
         <div className="mb-20">
-          <span className="inline-flex items-center rounded-full border border-[#8fb6ee]/50 bg-gradient-to-b from-[#4b80c6] to-[#2f5c9c] px-7 py-[11px] text-[13px] font-medium leading-none text-white shadow-[0_6px_20px_rgba(59,109,176,0.35),inset_0_1px_0_rgba(190,215,255,0.45)] mb-6">
+          <span className="inline-flex items-center rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-1.5 text-[12px] font-medium tracking-wide text-blue-300 mb-6">
             Our Approach
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-10">
@@ -77,7 +77,7 @@ const OptProcess = () => {
         {/* Impact Section */}
         <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-10">
           <div className="max-w-[450px]">
-            <span className="inline-flex items-center rounded-full border border-[#8fb6ee]/50 bg-gradient-to-b from-[#4b80c6] to-[#2f5c9c] px-7 py-[11px] text-[13px] font-medium leading-none text-white shadow-[0_6px_20px_rgba(59,109,176,0.35),inset_0_1px_0_rgba(190,215,255,0.45)] mb-6">
+            <span className="inline-flex items-center rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-1.5 text-[12px] font-medium tracking-wide text-blue-300 mb-6">
               Our Impact
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">

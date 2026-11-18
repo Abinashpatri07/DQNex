@@ -50,7 +50,7 @@ const MeasurableGrowth = () => {
     <section className="w-full bg-gradient-to-br from-[#050d1c] via-[#061426] to-[#071a33] px-6 py-16 font-sans md:px-10 lg:px-14">
       <div className="mx-auto max-w-[1300px]">
         {/* Badge (card ke bahar, upar) */}
-        <div className="mb-6 inline-block rounded-full border border-blue-400/40 bg-gradient-to-b from-[#4a7fc1] to-[#2f5a96] px-6 py-2 text-[12px] font-medium text-white shadow-[0_0_20px_rgba(59,130,246,0.25)]">
+        <div className="mb-6 inline-block rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-1.5 text-[12px] font-medium tracking-wide text-blue-300">
           Our Solutions
         </div>
 

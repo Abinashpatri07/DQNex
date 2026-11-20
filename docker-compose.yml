@@ -1,0 +1,10 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: dqnex-frontend:latest
+    container_name: dqnex-frontend
+    ports:
+      - "3000:80"
+    restart: unless-stopped

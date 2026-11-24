@@ -35,8 +35,8 @@ const CustomerStats = () => {
         {/* =========================
             SECTION LABEL
         ========================== */}
-        <div className="mb-7 text-left">
-          <span className="text-[12.5px] font-medium tracking-wide text-blue-300">
+        <div className="mb-8 flex justify-center text-center">
+          <span className="text-[13px] font-medium tracking-wide text-blue-300">
             What Customers Achieve
           </span>
         </div>

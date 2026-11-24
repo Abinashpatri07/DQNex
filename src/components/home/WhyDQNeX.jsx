@@ -78,7 +78,27 @@ const WhyDQNeX = () => {
   // pinned heading ke upar se poora nikal jaye, uske baad hi next section aaye
   const [bottomSpace, setBottomSpace] = useState(112);
   const [activeCard, setActiveCard] = useState(null);
+  const [linesVisible, setLinesVisible] = useState(false);
   const cardRefs = useRef([]);
+  const listRef = useRef(null);
+
+  // Animate 3 lines: Left, Right, Left when scrolled into view (har baar scroll par trigger hoga)
+  useEffect(() => {
+    const el = listRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setLinesVisible(entry.isIntersecting);
+      },
+      {
+        threshold: 0.15,
+      }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   // Mobile & Tablet ke liye: scroll hone par screen ke center wale card ko automatically golden active karo
   useEffect(() => {
@@ -134,9 +154,8 @@ const WhyDQNeX = () => {
         ref={headingRef}
         className="z-10 flex flex-col items-center px-6 pb-16 pt-28 text-center lg:sticky lg:top-0"
       >
-        <span className="inline-flex items-center gap-1.5 rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-1.5 text-[12px] font-medium tracking-wide text-blue-300">
-          <span className="h-1.5 w-1.5 rounded-full bg-blue-400" />
-          <span>Why DQNeX Exists</span>
+        <span className="text-[13px] font-medium tracking-wide text-blue-300">
+          Why DQNeX Exists
         </span>
 
         <h2 className="mt-7 text-[26px] font-medium leading-tight text-white md:text-[32px] lg:text-[36px]">
@@ -149,25 +168,48 @@ const WhyDQNeX = () => {
         <p className="mx-auto mt-5 max-w-[760px] text-[13px] leading-[1.7] text-[#c8d1dc]">
           Every business has different goals, processes, and constraints. DQNEX works to understand your requirements and recommend a suitable solution, from a customer-facing website to a custom application or business management system.
         </p>
-        <ul className="mx-auto mt-5 max-w-[760px] space-y-3 text-left text-[13px] leading-[1.7] text-[#c8d1dc]">
-          <li className="flex items-start gap-3">
-            <span className="mt-1 text-[#4b80c6]"></span>
+
+        {/* ── 3 Lines: 1st Left se, 2nd Right se, 3rd Fir Left se ── */}
+        <ul
+          ref={listRef}
+          className="mx-auto mt-6 max-w-[760px] space-y-3 text-left text-[13px] leading-[1.7] text-[#c8d1dc] overflow-hidden px-2 py-1"
+        >
+          {/* Line 1: Comes from LEFT */}
+          <li
+            className={`transform transition-all duration-700 ease-out ${
+              linesVisible
+                ? "translate-x-0 opacity-100 delay-150"
+                : "-translate-x-20 opacity-0 delay-0"
+            }`}
+          >
             <span>
               <strong className="text-white">Business-focused approach:</strong>{" "}
               Start with the problem and the desired outcome.
             </span>
           </li>
 
-          <li className="flex items-start gap-3">
-            <span className="mt-1 text-[#4b80c6]"></span>
+          {/* Line 2: Comes from RIGHT */}
+          <li
+            className={`transform transition-all duration-700 ease-out ${
+              linesVisible
+                ? "translate-x-0 opacity-100 delay-350"
+                : "translate-x-20 opacity-0 delay-0"
+            }`}
+          >
             <span>
               <strong className="text-white">Purpose-built solutions:</strong>{" "}
               Match the technology to the actual requirement.
             </span>
           </li>
 
-          <li className="flex items-start gap-3">
-            <span className="mt-1 text-[#4b80c6]"></span>
+          {/* Line 3: Comes from LEFT */}
+          <li
+            className={`transform transition-all duration-700 ease-out ${
+              linesVisible
+                ? "translate-x-0 opacity-100 delay-550"
+                : "-translate-x-20 opacity-0 delay-0"
+            }`}
+          >
             <span>
               <strong className="text-white">A clear delivery process:</strong>{" "}
               Define scope, milestones, testing, and handover.

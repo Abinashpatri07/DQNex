@@ -23,7 +23,7 @@ const svgProps = {
 
 const Footer = () => {
   return (
-    <div className="w-full bg-[#040e1a]">
+    <div className="w-full bg-transparent">
       <footer className="mx-auto w-full max-w-[1500px] px-7 pb-8 pt-0 font-sans text-white sm:px-8 md:px-10 lg:px-12 xl:px-14">
         {/* FOOTER CONTAINER */}
         <div className="relative w-full rounded-[32px] border border-gray-900/50 bg-[#050505] p-8 shadow-2xl lg:p-12">

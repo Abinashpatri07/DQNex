@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useState } from "react";
+import React, { useLayoutEffect, useMemo, useRef, useState } from "react";
 
 import logo from "../../assets/LOGO.png"; // path/extension adjust kar lena
 
@@ -41,6 +41,14 @@ const SHRINK = 0.9;       // 1 = pehle jitna, 0.8 = aur chhota
 const MIN_FIT = 0.6;
 
 const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+
+const bezierPoint = (p0, p1, p2, p3, t) => {
+  const mt = 1 - t;
+  return {
+    x: mt * mt * mt * p0.x + 3 * mt * mt * t * p1.x + 3 * mt * t * t * p2.x + t * t * t * p3.x,
+    y: mt * mt * mt * p0.y + 3 * mt * mt * t * p1.y + 3 * mt * t * t * p2.y + t * t * t * p3.y,
+  };
+};
 
 const cards = [
   {
@@ -136,6 +144,8 @@ const ImpactConnect = () => {
   const headingRef = useRef(null);
   const cardRefs = useRef([]);
   const [view, setView] = useState({ desktop: false, fit: 1, dw: PANEL_W });
+  const [connected, setConnected] = useState(false);
+  const connectedRef = useRef(false);
 
   /* screen ke hisaab se panel ka size */
   useLayoutEffect(() => {
@@ -157,12 +167,75 @@ const ImpactConnect = () => {
   const { desktop, fit, dw } = view;
   const cardW = clamp(dw * 0.28, 320, 390);
 
+  /* Curl lines data connecting center circle to each card */
+  const curlData = useMemo(() => {
+    if (!desktop) return null;
+    const cX = dw / 2;
+    const cY = 175.5;
+    const R1 = 152;
+    const R2 = 164;
+
+    // 1. Ideas (top left)
+    const p0_i = { x: cX + R1 * Math.cos(155 * Math.PI / 180), y: cY - R1 * Math.sin(155 * Math.PI / 180) };
+    const p3_i = { x: dw * 0.05 + cardW, y: 100 };
+    const dx_i = p0_i.x - p3_i.x;
+    const p1_i = { x: p0_i.x - dx_i * 0.45, y: p0_i.y - 20 };
+    const p2_i = { x: p3_i.x + dx_i * 0.35, y: p3_i.y };
+    const mid_i = bezierPoint(p0_i, p1_i, p2_i, p3_i, 0.5);
+    const path_i = `M ${p0_i.x.toFixed(1)} ${p0_i.y.toFixed(1)} C ${p1_i.x.toFixed(1)} ${p1_i.y.toFixed(1)}, ${p2_i.x.toFixed(1)} ${p2_i.y.toFixed(1)}, ${p3_i.x.toFixed(1)} ${p3_i.y.toFixed(1)}`;
+
+    // 2. People (bottom left)
+    const p0_p = { x: cX + R2 * Math.cos(205 * Math.PI / 180), y: cY - R2 * Math.sin(205 * Math.PI / 180) };
+    const p3_p = { x: dw * 0.05 + cardW, y: 260 };
+    const dx_p = p0_p.x - p3_p.x;
+    const p1_p = { x: p0_p.x - dx_p * 0.4, y: p0_p.y + 22 };
+    const p2_p = { x: p3_p.x + dx_p * 0.35, y: p3_p.y };
+    const mid_p = bezierPoint(p0_p, p1_p, p2_p, p3_p, 0.45);
+    const path_p = `M ${p0_p.x.toFixed(1)} ${p0_p.y.toFixed(1)} C ${p1_p.x.toFixed(1)} ${p1_p.y.toFixed(1)}, ${p2_p.x.toFixed(1)} ${p2_p.y.toFixed(1)}, ${p3_p.x.toFixed(1)} ${p3_p.y.toFixed(1)}`;
+
+    // 3. Technology (top right)
+    const p0_t = { x: cX + R1 * Math.cos(25 * Math.PI / 180), y: cY - R1 * Math.sin(25 * Math.PI / 180) };
+    const p3_t = { x: dw * 0.95 - cardW, y: 100 };
+    const dx_t = p3_t.x - p0_t.x;
+    const p1_t = { x: p0_t.x + dx_t * 0.45, y: p0_t.y - 20 };
+    const p2_t = { x: p3_t.x - dx_t * 0.35, y: p3_t.y };
+    const mid_t = bezierPoint(p0_t, p1_t, p2_t, p3_t, 0.5);
+    const path_t = `M ${p0_t.x.toFixed(1)} ${p0_t.y.toFixed(1)} C ${p1_t.x.toFixed(1)} ${p1_t.y.toFixed(1)}, ${p2_t.x.toFixed(1)} ${p2_t.y.toFixed(1)}, ${p3_t.x.toFixed(1)} ${p3_t.y.toFixed(1)}`;
+
+    // 4. Business (bottom right)
+    const p0_b = { x: cX + R2 * Math.cos(-25 * Math.PI / 180), y: cY - R2 * Math.sin(-25 * Math.PI / 180) };
+    const p3_b = { x: dw * 0.95 - cardW, y: 260 };
+    const dx_b = p3_b.x - p0_b.x;
+    const p1_b = { x: p0_b.x + dx_b * 0.4, y: p0_b.y + 22 };
+    const p2_b = { x: p3_b.x - dx_b * 0.35, y: p3_b.y };
+    const mid_b = bezierPoint(p0_b, p1_b, p2_b, p3_b, 0.45);
+    const path_b = `M ${p0_b.x.toFixed(1)} ${p0_b.y.toFixed(1)} C ${p1_b.x.toFixed(1)} ${p1_b.y.toFixed(1)}, ${p2_b.x.toFixed(1)} ${p2_b.y.toFixed(1)}, ${p3_b.x.toFixed(1)} ${p3_b.y.toFixed(1)}`;
+
+    // 5. Impact (bottom center)
+    const p0_m = { x: cX, y: cY + R1 };
+    const p3_m = { x: cX, y: 350 };
+    const path_m = `M ${p0_m.x.toFixed(1)} ${p0_m.y.toFixed(1)} C ${cX} ${(p0_m.y + 15).toFixed(1)}, ${cX} ${(p3_m.y - 10).toFixed(1)}, ${p3_m.x.toFixed(1)} ${p3_m.y.toFixed(1)}`;
+
+    return {
+      cX,
+      cY,
+      R1,
+      R2,
+      ideas: { path: path_i, start: p0_i, end: p3_i, mid: mid_i, color: "#38bdf8", stroke: "url(#grad-ideas)" },
+      people: { path: path_p, start: p0_p, end: p3_p, mid: mid_p, color: "#34d399", accentColor: "#f59e0b", stroke: "url(#grad-people)" },
+      tech: { path: path_t, start: p0_t, end: p3_t, mid: mid_t, color: "#a78bfa", stroke: "url(#grad-tech)" },
+      business: { path: path_b, start: p0_b, end: p3_b, mid: mid_b, color: "#fbbf24", accentColor: "#38bdf8", stroke: "url(#grad-business)" },
+      impact: { path: path_m, start: p0_m, end: p3_m, mid: { x: cX, y: 338 }, color: "#f43f5e", stroke: "url(#grad-impact)" },
+    };
+  }, [desktop, dw, cardW]);
+
   /* cards: scroll par bahar se aate hain, aage scroll par chale jaate hain */
   useLayoutEffect(() => {
     const panel = panelRef.current;
     if (!panel) return;
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setConnected(true);
       cardRefs.current.forEach((el) => {
         if (el) {
           el.style.opacity = "1";
@@ -181,6 +254,13 @@ const ImpactConnect = () => {
 
       const enter = clamp((vh * ENTER_START - top) / Math.max(250, height - vh * (1 - ENTER_END)));
       const exit = clamp((vh * EXIT_START - top) / (height * EXIT_LEN));
+
+      // Cards middle position par poora aane par curl line connect ho jati hai
+      const isSettled = enter >= 0.82 && exit < 0.22;
+      if (isSettled !== connectedRef.current) {
+        connectedRef.current = isSettled;
+        setConnected(isSettled);
+      }
 
       cardRefs.current.forEach((el, i) => {
         if (!el) return;
@@ -243,6 +323,151 @@ const ImpactConnect = () => {
 
           {/* halka center glow */}
           <div className="pointer-events-none absolute left-1/2 top-[45%] h-[380px] w-[650px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(ellipse,rgba(25,72,180,0.22),rgba(25,72,180,0.08)_40%,transparent_72%)] blur-[45px]" />
+
+          {/* SVG CURL LINES (Center circle se cards tak curl line connection) */}
+          {desktop && curlData && (
+            <svg
+              className="pointer-events-none absolute inset-0 z-15 h-[500px] w-full"
+              viewBox={`0 0 ${dw} 500`}
+              fill="none"
+              style={{ overflow: "visible" }}
+            >
+              <defs>
+                <linearGradient id="grad-ideas" x1="100%" y1="50%" x2="0%" y2="50%">
+                  <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.9" />
+                  <stop offset="100%" stopColor="#60a5fa" stopOpacity="0.4" />
+                </linearGradient>
+                <linearGradient id="grad-people" x1="100%" y1="50%" x2="0%" y2="50%">
+                  <stop offset="0%" stopColor="#34d399" stopOpacity="0.9" />
+                  <stop offset="100%" stopColor="#38bdf8" stopOpacity="0.4" />
+                </linearGradient>
+                <linearGradient id="grad-tech" x1="0%" y1="50%" x2="100%" y2="50%">
+                  <stop offset="0%" stopColor="#818cf8" stopOpacity="0.4" />
+                  <stop offset="100%" stopColor="#a78bfa" stopOpacity="0.9" />
+                </linearGradient>
+                <linearGradient id="grad-business" x1="0%" y1="50%" x2="100%" y2="50%">
+                  <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.4" />
+                  <stop offset="100%" stopColor="#fbbf24" stopOpacity="0.9" />
+                </linearGradient>
+                <linearGradient id="grad-impact" x1="50%" y1="0%" x2="50%" y2="100%">
+                  <stop offset="0%" stopColor="#818cf8" stopOpacity="0.4" />
+                  <stop offset="100%" stopColor="#f43f5e" stopOpacity="0.9" />
+                </linearGradient>
+
+                <filter id="curl-glow" x="-30%" y="-30%" width="160%" height="160%">
+                  <feGaussianBlur stdDeviation="3.5" result="blur" />
+                  <feMerge>
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+              </defs>
+
+              {/* Concentric orbital rings around center circle (as in reference image) */}
+              <circle
+                cx={curlData.cX}
+                cy={curlData.cY}
+                r={curlData.R1}
+                stroke="#38bdf8"
+                strokeWidth="1.2"
+                strokeOpacity={connected ? 0.45 : 0.15}
+                strokeDasharray="6 6"
+                className="transition-opacity duration-700"
+              />
+              <circle
+                cx={curlData.cX}
+                cy={curlData.cY}
+                r={curlData.R2}
+                stroke="#f59e0b"
+                strokeWidth="1.2"
+                strokeOpacity={connected ? 0.35 : 0.1}
+                strokeDasharray="14 8"
+                className="transition-opacity duration-700"
+              />
+
+              {/* The 5 Curl Lines */}
+              {[curlData.ideas, curlData.people, curlData.tech, curlData.business, curlData.impact].map((item, idx) => (
+                <g key={idx}>
+                  {/* Glowing background path */}
+                  <path
+                    d={item.path}
+                    stroke={item.color}
+                    strokeWidth="3.5"
+                    strokeOpacity={connected ? 0.35 : 0}
+                    fill="none"
+                    strokeLinecap="round"
+                    pathLength="100"
+                    strokeDasharray="100"
+                    strokeDashoffset={connected ? 0 : 100}
+                    filter="url(#curl-glow)"
+                    style={{
+                      transition: "stroke-dashoffset 0.85s cubic-bezier(0.2, 0.8, 0.2, 1), stroke-opacity 0.4s ease",
+                    }}
+                  />
+                  {/* Crisp foreground path */}
+                  <path
+                    d={item.path}
+                    stroke={item.stroke}
+                    strokeWidth="2"
+                    strokeOpacity={connected ? 0.95 : 0}
+                    fill="none"
+                    strokeLinecap="round"
+                    pathLength="100"
+                    strokeDasharray="100"
+                    strokeDashoffset={connected ? 0 : 100}
+                    style={{
+                      transition: "stroke-dashoffset 0.85s cubic-bezier(0.2, 0.8, 0.2, 1), stroke-opacity 0.4s ease",
+                    }}
+                  />
+
+                  {/* Start Node on Ring */}
+                  <circle
+                    cx={item.start.x}
+                    cy={item.start.y}
+                    r={3}
+                    fill={item.color}
+                    opacity={connected ? 0.9 : 0}
+                    style={{
+                      transition: "opacity 0.4s ease 0.2s, transform 0.4s ease 0.2s",
+                      transformOrigin: `${item.start.x}px ${item.start.y}px`,
+                      transform: connected ? "scale(1)" : "scale(0)",
+                    }}
+                  />
+
+                  {/* Terminal Node at Card Edge */}
+                  <g
+                    style={{
+                      transition: "opacity 0.4s ease 0.75s, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.75s",
+                      transformOrigin: `${item.end.x}px ${item.end.y}px`,
+                      transform: connected ? "scale(1)" : "scale(0)",
+                      opacity: connected ? 1 : 0,
+                    }}
+                  >
+                    <circle
+                      cx={item.end.x}
+                      cy={item.end.y}
+                      r={8}
+                      fill={item.color}
+                      fillOpacity="0.35"
+                      filter="url(#curl-glow)"
+                    />
+                    <circle
+                      cx={item.end.x}
+                      cy={item.end.y}
+                      r={4.5}
+                      fill={item.color}
+                    />
+                    <circle
+                      cx={item.end.x}
+                      cy={item.end.y}
+                      r={2}
+                      fill="#ffffff"
+                    />
+                  </g>
+                </g>
+              ))}
+            </svg>
+          )}
 
           {/* CENTER LOGO CIRCLE */}
           <div className="relative z-20 aspect-square w-[230px] lg:absolute lg:left-1/2 lg:top-[38px] lg:w-[275px] lg:-translate-x-1/2">

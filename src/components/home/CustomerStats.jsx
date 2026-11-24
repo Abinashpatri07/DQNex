@@ -29,23 +29,22 @@ const CustomerStats = () => {
   ];
 
   return (
-    <section className="relative w-full bg-transparent py-16">
+    <section className="relative w-full bg-transparent py-12 sm:py-14">
       <div className="mx-auto max-w-[1500px] px-7 sm:px-8 md:px-10 lg:px-12 xl:px-14">
 
         {/* =========================
             SECTION LABEL
         ========================== */}
-        <div className="mb-10 text-left">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-1.5 text-[12px] font-medium tracking-wide text-blue-300">
-            <span className="h-1.5 w-1.5 rounded-full bg-blue-400" />
-            <span>What Customers Achieve</span>
+        <div className="mb-7 text-left">
+          <span className="text-[12.5px] font-medium tracking-wide text-blue-300">
+            What Customers Achieve
           </span>
         </div>
 
         {/* =========================
             STATS GRID
         ========================== */}
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2">
           {stats.map((stat, index) => (
             <StatCard
               key={index}
@@ -164,11 +163,12 @@ const StatCard = ({ title, target, suffix, description }) => {
       className="
         group
         relative
-        min-h-[196px]
+        min-h-[158px]
+        sm:min-h-[166px]
         overflow-hidden
-        rounded-[14px]
-        px-7
-        py-6
+        rounded-[12px]
+        px-6
+        py-5
         bg-[#112a49]
 
         transition-all
@@ -194,7 +194,7 @@ const StatCard = ({ title, target, suffix, description }) => {
           pointer-events-none
           absolute
           inset-0
-          rounded-[14px]
+          rounded-[12px]
           bg-[radial-gradient(ellipse_at_right,rgba(35,132,255,0.13),transparent_55%)]
           opacity-0
           transition-opacity
@@ -212,8 +212,8 @@ const StatCard = ({ title, target, suffix, description }) => {
           absolute
           right-[-35px]
           top-1/2
-          h-[160px]
-          w-[50px]
+          h-[130px]
+          w-[45px]
           -translate-y-1/2
           rounded-full
           bg-[#1785ff]/0
@@ -232,7 +232,8 @@ const StatCard = ({ title, target, suffix, description }) => {
         {/* TITLE */}
         <h3
           className="
-            text-[17px]
+            text-[15px]
+            sm:text-[16px]
             font-medium
             leading-none
             text-[#f5f7fb]
@@ -244,19 +245,19 @@ const StatCard = ({ title, target, suffix, description }) => {
         {/* NUMBER */}
         <div
           className="
-            mt-4
-            sm:mt-5
+            mt-2.5
+            sm:mt-3
             bg-gradient-to-b
             from-[#4f86ce]
             via-[#77a6dd]
             to-[#aac3e5]
             bg-clip-text
-            text-[54px]
-            sm:text-[60px]
-            md:text-[66px]
+            text-[42px]
+            sm:text-[48px]
+            md:text-[52px]
             font-light
             leading-[0.9]
-            tracking-[-2px]
+            tracking-[-1.5px]
             text-transparent
           "
         >
@@ -271,11 +272,12 @@ const StatCard = ({ title, target, suffix, description }) => {
       <p
         className="
           absolute
-          bottom-[23px]
-          left-7
-          right-6
+          bottom-[18px]
+          left-6
+          right-5
           z-10
-          text-[12px]
+          text-[11.5px]
+          sm:text-[12px]
           leading-[1.4]
           text-[#8499b0]
         "

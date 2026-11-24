@@ -54,12 +54,17 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Downcase repository name for Docker tag compatibility
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        id: repo_name
+        run: echo "name=$(echo '${{ github.repository }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_OUTPUT
+
       - name: Extract metadata for Docker
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ghcr.io/${{ github.repository }}
+          images: ghcr.io/${{ steps.repo_name.outputs.name }}
           tags: |
             type=raw,value=latest
             type=sha,format=short

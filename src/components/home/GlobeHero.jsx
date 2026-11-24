@@ -631,7 +631,7 @@ const GlobeHero = () => {
   return (
     <div
       ref={wrapRef}
-      className="relative w-full h-full rounded-2xl overflow-hidden bg-[#02081a] cursor-grab active:cursor-grabbing"
+      className="relative w-full h-full flex-1 overflow-hidden bg-transparent cursor-grab active:cursor-grabbing flex items-center justify-center"
     >
       {/* Blue halo behind globe */}
       <div

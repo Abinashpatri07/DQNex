@@ -231,6 +231,14 @@ const WhyDQNeX = () => {
                 key={svc.title}
                 ref={(el) => (cardRefs.current[idx] = el)}
                 data-title={svc.title}
+                onPointerEnter={(e) => {
+                  if (e.pointerType !== "touch") setActiveCard(svc.title);
+                }}
+                onPointerLeave={(e) => {
+                  if (e.pointerType !== "touch") {
+                    setActiveCard((prev) => (prev === svc.title ? null : prev));
+                  }
+                }}
                 onClick={() =>
                   setActiveCard((prev) => (prev === svc.title ? null : svc.title))
                 }

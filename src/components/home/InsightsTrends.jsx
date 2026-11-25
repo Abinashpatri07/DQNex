@@ -76,10 +76,6 @@ const InsightsTrends = () => {
             future of technology.
           </span>
         </h2>
-
-        <button className="mt-4 flex items-center gap-2 rounded-full bg-[#4774B8] px-8 py-3 text-sm font-medium text-white shadow-lg transition-colors hover:bg-[#355d96]">
-          Featured Insight <span className="text-lg leading-none">&rarr;</span>
-        </button>
       </div>
 
       {/* Right Content - Cards (teeno cards poore dikhte hain) */}

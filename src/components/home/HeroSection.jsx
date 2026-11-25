@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 
 import heroScroll1 from "../../assets/HeroScroll1.png";
 import heroScroll2 from "../../assets/HeroScroll2.png";
@@ -333,40 +333,6 @@ const HeroSection = () => {
             <p className="mx-auto max-w-[600px] text-[13px] leading-relaxed text-[#c8d1dc] sm:text-[14px]">
               {currentSlide.tagline}
             </p>
-          </div>
-
-          {/* Navigation Controls: Sleek Dots & Arrows (Stable, no flicker) */}
-          <div className="mt-2 flex items-center justify-center gap-3">
-            <button
-              onClick={handlePrev}
-              aria-label="Previous Slide"
-              className="flex h-7 w-7 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/70 transition hover:bg-white/15 hover:text-white"
-            >
-              <ChevronLeft className="h-3.5 w-3.5" />
-            </button>
-
-            <div className="flex items-center gap-1.5 px-1">
-              {slides.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setActiveIdx(idx)}
-                  aria-label={`Go to slide ${idx + 1}`}
-                  className={`h-1.5 rounded-full transition-all duration-300 ${
-                    idx === activeIdx
-                      ? "w-6 bg-blue-400"
-                      : "w-1.5 bg-white/20 hover:bg-white/40"
-                  }`}
-                />
-              ))}
-            </div>
-
-            <button
-              onClick={handleNext}
-              aria-label="Next Slide"
-              className="flex h-7 w-7 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/70 transition hover:bg-white/15 hover:text-white"
-            >
-              <ChevronRight className="h-3.5 w-3.5" />
-            </button>
           </div>
         </div>
       </div>

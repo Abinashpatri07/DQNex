@@ -55,6 +55,41 @@ const GOLD = {
   to: [226, 190, 110],
 };
 
+const getHighlightedWordIndices = (quote, highlight) => {
+  const highlightedIndices = new Set();
+  if (!quote || !highlight) return highlightedIndices;
+
+  const phrases = quote.includes(highlight)
+    ? [highlight]
+    : highlight
+        .split(",")
+        .map((p) => p.trim())
+        .filter(Boolean);
+
+  const ranges = [];
+  phrases.forEach((phrase) => {
+    const start = quote.indexOf(phrase);
+    if (start !== -1) {
+      ranges.push([start, start + phrase.length]);
+    }
+  });
+
+  const wordRegex = /\S+/g;
+  let match;
+  let wordIdx = 0;
+  while ((match = wordRegex.exec(quote)) !== null) {
+    const wStart = match.index;
+    const wEnd = wStart + match[0].length;
+    const inRange = ranges.some(([rStart, rEnd]) => wStart >= rStart && wEnd <= rEnd);
+    if (inRange) {
+      highlightedIndices.add(wordIdx);
+    }
+    wordIdx++;
+  }
+
+  return highlightedIndices;
+};
+
 const mix = (colors, progress) =>
   `rgb(${colors.from
     .map((start, i) =>
@@ -86,19 +121,15 @@ const Testimonial = () => {
           (viewportHeight * 0.6)
         );
 
+        const highlightedIndices = getHighlightedWordIndices(
+          testimonial.quote,
+          testimonial.highlight
+        );
+
         words.forEach((element, wordIndex) => {
           if (!element) return;
 
-          const word = element.dataset.word || "";
-          const cleanWord = word.replace(/^[^a-zA-Z0-9]+|[^a-zA-Z0-9]+$/g, "");
-
-          const highlightedWords = (testimonial.highlight || "")
-            .split(/\s+/)
-            .map((item) =>
-              item.replace(/^[^a-zA-Z0-9]+|[^a-zA-Z0-9]+$/g, "")
-            );
-
-          const isHighlighted = highlightedWords.includes(cleanWord);
+          const isHighlighted = highlightedIndices.has(wordIndex);
           const totalWords = words.length;
           const wordProgress = clamp(
             (progress * (totalWords + 1.5) - wordIndex) / 1.5

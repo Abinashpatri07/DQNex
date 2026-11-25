@@ -41,6 +41,40 @@ export const submitContactForm = async (formDataOrObj) => {
   return data;
 };
 
+export const fetchBookedSlots = async (dateKey) => {
+  const baseUrl = getApiBaseUrl();
+  const response = await fetch(
+    `${baseUrl}/meetings?date=${encodeURIComponent(dateKey)}`
+  );
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    return [];
+  }
+  return Array.isArray(data.bookedSlots) ? data.bookedSlots : [];
+};
+
+export const scheduleMeeting = async (meetingData) => {
+  const baseUrl = getApiBaseUrl();
+  const response = await fetch(`${baseUrl}/meetings`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(meetingData),
+  });
+
+  const data = await response.json().catch(() => ({}));
+
+  if (!response.ok) {
+    throw new Error(
+      data.message ||
+        `Server responded with error (${response.status}). Please check SMTP backend.`
+    );
+  }
+
+  return data;
+};
+
 export const submitNewsletter = async (email) => {
   const baseUrl = getApiBaseUrl();
 

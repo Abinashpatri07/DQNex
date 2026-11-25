@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import {
   PhoneCall,
   MessageCircle,
@@ -17,6 +17,7 @@ import {
   AlertCircle,
 } from "lucide-react";
 import { submitContactForm } from "../../utils/contactApi";
+import ScheduleMeetingModal from "./ScheduleMeetingModal";
 
 const inputBase =
   "w-full rounded-lg border border-white/10 bg-[#0a1a30]/80 py-[9px] pl-10 pr-3 text-[11px] text-white placeholder:text-white/60 outline-none transition-colors focus:border-[#3b82f6]/70";
@@ -33,17 +34,20 @@ const Pill = ({ children }) => (
 const contactItems = [
   {
     title: "Call Us",
-    highlight: "+91 8553529594",
+    highlight: "+91 8971560101",
     desc: "Mon - Sat, 10:00 AM - 7:00 PM",
     icon: PhoneCall,
+    href: "tel:+918971560101",
     circle:
       "bg-[#3a2f1c] border border-[#f59e0b]/30 text-[#f59e0b]",
   },
   {
     title: "Chat on WhatsApp",
-    highlight: "+91 8553529594",
+    highlight: "+91 8971560101",
     desc: "Get quick support on WhatsApp",
     icon: MessageCircle,
+    href: "https://wa.me/918971560101",
+    external: true,
     circle:
       "bg-gradient-to-b from-[#22c55e] to-[#15803d] text-white shadow-[0_0_14px_rgba(34,197,94,0.35)]",
   },
@@ -52,6 +56,7 @@ const contactItems = [
     highlight: "info@dqnex.com",
     desc: "We usually respond within 24 hours",
     icon: Mail,
+    href: "mailto:info@dqnex.com",
     circle:
       "bg-gradient-to-b from-[#1d4ed8] to-[#1e3a8a] border border-[#60a5fa]/40 text-[#bfdbfe] shadow-[0_0_14px_rgba(59,130,246,0.35)]",
   },
@@ -60,12 +65,15 @@ const contactItems = [
     highlight: null,
     desc: "Book a free consultation with our experts",
     icon: Calendar,
+    action: "schedule",
     circle:
       "bg-gradient-to-b from-[#8b5cf6] to-[#4c1d95] border border-[#c4b5fd]/30 text-white shadow-[0_0_14px_rgba(139,92,246,0.35)]",
   },
 ];
 
 const ContactForm = () => {
+  const nameInputRef = useRef(null);
+  const [isSchedulerOpen, setIsSchedulerOpen] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
     company: "",
@@ -201,6 +209,7 @@ const ContactForm = () => {
                   <User className="h-[14px] w-[14px]" strokeWidth={1.5} />
                 </div>
                 <input
+                  ref={nameInputRef}
                   name="fullName"
                   value={formData.fullName}
                   onChange={handleInputChange}
@@ -406,37 +415,73 @@ const ContactForm = () => {
           </h2>
 
           <div className="flex flex-col gap-4">
-            {contactItems.map(({ title, highlight, desc, icon: Icon, circle }) => (
-              <div
-                key={title}
-                className="group flex cursor-pointer items-center justify-between gap-3 rounded-xl border border-white/10 bg-[#0a1424]/60 px-4 py-3.5 transition-colors hover:border-[#3b82f6]/50"
-              >
-                <div className="flex items-center gap-4">
-                  <span
-                    className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full ${circle}`}
-                  >
-                    <Icon className="h-[18px] w-[18px]" strokeWidth={1.6} />
-                  </span>
+            {contactItems.map(({ title, highlight, desc, icon: Icon, circle, href, external, action }) => {
+              const cardClasses =
+                "group flex w-full cursor-pointer items-center justify-between gap-3 rounded-xl border border-white/10 bg-[#0a1424]/60 px-4 py-3.5 text-left transition-colors hover:border-[#3b82f6]/50";
 
-                  <div className="leading-tight">
-                    <p className="text-[14px] font-normal text-white">{title}</p>
-                    {highlight && (
-                      <p className="mt-1 text-[11px] font-semibold text-white">{highlight}</p>
-                    )}
-                    <p className="mt-1 max-w-[190px] text-[10px] leading-[1.35] text-[#b4c0d0]">
-                      {desc}
-                    </p>
+              const cardContent = (
+                <>
+                  <div className="flex items-center gap-4">
+                    <span
+                      className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full ${circle}`}
+                    >
+                      <Icon className="h-[18px] w-[18px]" strokeWidth={1.6} />
+                    </span>
+
+                    <div className="leading-tight">
+                      <p className="text-[14px] font-normal text-white">{title}</p>
+                      {highlight && (
+                        <p className="mt-1 text-[11px] font-semibold text-white">{highlight}</p>
+                      )}
+                      <p className="mt-1 max-w-[190px] text-[10px] leading-[1.35] text-[#b4c0d0]">
+                        {desc}
+                      </p>
+                    </div>
                   </div>
-                </div>
 
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/[0.04] text-white/70 transition-colors group-hover:border-[#3b82f6]/60 group-hover:text-white">
-                  <ChevronRight className="h-4 w-4" />
-                </span>
-              </div>
-            ))}
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/[0.04] text-white/70 transition-colors group-hover:border-[#3b82f6]/60 group-hover:text-white">
+                    <ChevronRight className="h-4 w-4" />
+                  </span>
+                </>
+              );
+
+              if (href) {
+                return (
+                  <a
+                    key={title}
+                    href={href}
+                    target={external ? "_blank" : undefined}
+                    rel={external ? "noreferrer" : undefined}
+                    className={cardClasses}
+                  >
+                    {cardContent}
+                  </a>
+                );
+              }
+
+              return (
+                <button
+                  key={title}
+                  type="button"
+                  onClick={() => {
+                    if (action === "schedule") {
+                      setIsSchedulerOpen(true);
+                    }
+                  }}
+                  className={cardClasses}
+                >
+                  {cardContent}
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>
+
+      <ScheduleMeetingModal
+        isOpen={isSchedulerOpen}
+        onClose={() => setIsSchedulerOpen(false)}
+      />
     </section>
   );
 };

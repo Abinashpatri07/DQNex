@@ -11,7 +11,7 @@ import FAQSection from "../../components/home/FAQSection";
 
 const VerifyNeX = () => {
   return (
-    <div className="bg-[#040e1a] min-h-screen">
+    <div className="bg-transparent min-h-screen">
       <VnxHero />
       <VnxFlow />
       <VnxCompare />

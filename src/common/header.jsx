@@ -540,7 +540,7 @@ const Header = () => {
 
           {/* ── CONTACT US BUTTON (desktop) ── */}
           <Link
-            to="/contact"
+            to="/contact#contact-form"
             onClick={() => {
               setServiceOpen(false);
               setPlatformOpen(false);
@@ -718,7 +718,7 @@ const Header = () => {
 
             {/* Contact Us (mobile) */}
             <Link
-              to="/contact"
+              to="/contact#contact-form"
               onClick={() => setMobileOpen(false)}
               className="
                 mt-2 flex items-center justify-center gap-2.5

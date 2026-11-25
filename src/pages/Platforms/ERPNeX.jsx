@@ -9,7 +9,7 @@ import ContactSection from "../../components/home/ContactSection";
 
 const ERPNeX = () => {
   return (
-    <div className="bg-[#040e1a] min-h-screen">
+    <div className="bg-transparent min-h-screen">
       <ErpHero />
       <ErpFlow />
       <ErpCompare />

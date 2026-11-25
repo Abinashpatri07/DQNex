@@ -29,7 +29,7 @@ const features = [
 
 const PoweringTransactions = () => {
   return (
-    <section className="w-full bg-gradient-to-br from-[#050d1c] via-[#061426] to-[#071a33] px-6 py-16 font-sans md:px-10 lg:px-14">
+    <section className="w-full bg-transparent px-6 py-16 font-sans md:px-10 lg:px-14">
       <div className="mx-auto max-w-[1300px]">
         {/* Top row: image + content */}
         <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-14">

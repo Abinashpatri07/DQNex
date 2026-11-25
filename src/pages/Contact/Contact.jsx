@@ -6,7 +6,7 @@ import ContactSection from "../../components/home/ContactSection";
 
 const Contact = () => {
   return (
-    <div className="flex w-full flex-col font-sans bg-[#050d1c]">
+    <div className="flex w-full flex-col font-sans bg-transparent">
       <ContactHero />
       <ContactForm />
       <ContactLocation />

@@ -11,7 +11,7 @@ const Pill = ({ children }) => (
 
 const ContactLocation = () => {
   return (
-    <section className="relative w-full bg-[#030b18] px-6 py-10 font-sans md:px-10 lg:px-14">
+    <section className="relative w-full bg-transparent px-6 py-10 font-sans md:px-10 lg:px-14">
       <div className="mx-auto flex max-w-[1190px] flex-col gap-8 lg:flex-row lg:items-center lg:gap-10">
         {/* ── Left: Details ── */}
         <div className="w-full lg:w-[400px] lg:shrink-0">

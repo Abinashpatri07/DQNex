@@ -10,7 +10,7 @@ import ContactSection from "../../components/home/ContactSection";
 
 const ECommerce = () => {
   return (
-    <div className="bg-[#051120] text-white overflow-hidden">
+    <div className="bg-transparent text-white overflow-hidden">
       <EcoHero />
       <DigitalCommerce />
       <KeyChallenges />

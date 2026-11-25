@@ -189,7 +189,7 @@ const ContactForm = () => {
   };
 
   return (
-    <section id="contact-form" className="relative w-full scroll-mt-24 bg-gradient-to-b from-[#050d1c] to-[#071a33] px-6 py-10 font-sans md:px-10 lg:px-14">
+    <section id="contact-form" className="relative w-full scroll-mt-24 bg-transparent px-6 py-10 font-sans md:px-10 lg:px-14">
       <div className="mx-auto flex max-w-[1190px] flex-col gap-5 lg:flex-row lg:items-stretch">
         {/* ── Left: Form ── */}
         <div className="flex-1 rounded-[20px] border border-white/10 bg-[linear-gradient(135deg,rgba(20,55,110,0.55)_0%,rgba(8,20,40,0.85)_55%,rgba(8,18,36,0.9)_100%)] p-5 backdrop-blur-md md:p-6">

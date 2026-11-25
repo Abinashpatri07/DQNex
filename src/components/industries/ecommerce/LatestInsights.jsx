@@ -29,7 +29,7 @@ const articles = [
 
 const LatestInsights = () => {
   return (
-    <section className="w-full bg-gradient-to-br from-[#050d1c] via-[#061426] to-[#071a33] px-6 py-16 font-sans md:px-10 lg:px-14">
+    <section className="w-full bg-transparent px-6 py-16 font-sans md:px-10 lg:px-14">
       <div className="mx-auto max-w-[1300px]">
         {/* Header */}
         <div className="mb-8 flex flex-col justify-between gap-6 md:flex-row md:items-end">

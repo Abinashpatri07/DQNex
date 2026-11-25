@@ -12,13 +12,13 @@ const features = [
 
 const ContactHero = () => {
   return (
-    <section className="relative flex min-h-[calc(100vh-64px)] w-full items-center overflow-hidden bg-[#050d1c] px-6 pt-[64px] font-sans md:px-10 lg:min-h-[600px] lg:px-14">
-      {/* Background image: poore section me, koi gap nahi */}
+    <section className="relative flex min-h-[calc(100vh-64px)] w-full items-center overflow-hidden bg-transparent px-6 pt-[64px] font-sans md:px-10 lg:min-h-[600px] lg:px-14">
+      {/* Background image: poore section me, bottom smoothly fades into page bg */}
       <img
         src={contactusHero}
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 h-full w-full object-cover object-right"
+        className="absolute inset-0 h-full w-full object-cover object-right [mask-image:linear-gradient(to_bottom,#000_82%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_bottom,#000_82%,transparent_100%)]"
       />
 
       {/* Left side readability overlays */}

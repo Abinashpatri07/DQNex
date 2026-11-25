@@ -6,7 +6,7 @@ import heroBg from "../../../assets/Industry/EcommerceHero.png";
 
 const EcommerceHero = () => {
   return (
-    <section className="relative flex w-full min-h-[calc(100vh-64px)] items-center overflow-hidden bg-[#050d1c] pt-[64px] font-sans lg:min-h-[600px] lg:aspect-[2.55/1]">
+    <section className="relative flex w-full min-h-[calc(100vh-64px)] items-center overflow-hidden bg-transparent pt-[64px] font-sans lg:min-h-[600px] lg:aspect-[2.55/1]">
       {/* Background image */}
       <img
         src={heroBg}

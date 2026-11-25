@@ -100,25 +100,25 @@ const Footer = () => {
               <Link to="/industries" className={linkClass}>Industry</Link>
               <Link to="/career" className={linkClass}>Career</Link>
               <Link to="/blog" className={linkClass}>Blog</Link>
-              <Link to="/contact" className={linkClass}>Contact us</Link>
+              <Link to="/contact#contact-form" className={linkClass}>Contact us</Link>
             </div>
 
             {/* OUR SERVICE */}
             <div className="flex flex-col gap-3.5">
               <h4 className="mb-1 font-medium text-gray-300">Our service</h4>
-              <Link to="#" className={linkClass}>App Development</Link>
-              <Link to="#" className={linkClass}>Security Management</Link>
-              <Link to="#" className={linkClass}>IT Advisor</Link>
-              <Link to="#" className={linkClass}>Back Office Management</Link>
+              <Link to="/app-development" className={linkClass}>App Development</Link>
+              <Link to="/security-management" className={linkClass}>Security Management</Link>
+              <Link to="/it-advisor" className={linkClass}>IT Advisor</Link>
+              <Link to="/back-office-management" className={linkClass}>Back Office Management</Link>
             </div>
 
             {/* LEGAL */}
             <div className="flex flex-col gap-3.5">
               <h4 className="mb-1 font-medium text-gray-300">Legal</h4>
-              <Link to="#" className={linkClass}>Terms of service</Link>
-              <Link to="#" className={linkClass}>Privacy policy</Link>
+              <Link to="/terms-of-service" className={linkClass}>Terms of service</Link>
+              <Link to="/privacy-policy" className={linkClass}>Privacy policy</Link>
               <Link to="/about" className={linkClass}>About us</Link>
-              <Link to="#" className={linkClass}>Cookie policy</Link>
+              <Link to="/cookie-policy" className={linkClass}>Cookie policy</Link>
             </div>
 
             {/* CONTACT */}
@@ -141,7 +141,12 @@ const Footer = () => {
                 </svg>
                 <div>
                   <p className="mb-1 text-xs text-gray-500">Phone number</p>
-                  <p className="text-sm text-gray-300">+91 68864321974</p>
+                  <a
+                    href="tel:+918971560101"
+                    className="text-sm text-gray-300 transition-colors hover:text-white"
+                  >
+                    +91 8971560101
+                  </a>
                 </div>
               </div>
 

@@ -7,7 +7,7 @@ import ctaBg from "../../../assets/Industry/EcommerseLetsTalk.png";
 
 const EcommerceCTA = () => {
   return (
-    <section className="w-full bg-gradient-to-br from-[#050d1c] via-[#061426] to-[#071a33] px-6 py-10 font-sans md:px-10 md:py-16 lg:px-14">
+    <section className="w-full bg-transparent px-6 py-10 font-sans md:px-10 md:py-16 lg:px-14">
       <div className="relative mx-auto flex min-h-[340px] max-w-[1300px] items-center overflow-hidden rounded-[28px] border border-white/10 bg-[#050d1c] shadow-2xl md:min-h-[360px]">
         {/* Background image (cart, icons, glow sab image me hain) */}
         <img

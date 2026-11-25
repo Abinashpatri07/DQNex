@@ -43,7 +43,7 @@ const PaymentChallenges = () => {
   };
 
   return (
-    <section className="w-full overflow-hidden bg-gradient-to-br from-[#050d1c] via-[#061426] to-[#071a33] px-6 py-16 font-sans md:px-10 lg:px-14">
+    <section className="w-full overflow-hidden bg-transparent px-6 py-16 font-sans md:px-10 lg:px-14">
       <div className="mx-auto max-w-[1300px]">
         {/* Badge (panel ke bahar, upar) */}
         <div className="mb-6 inline-block text-[13px] font-medium tracking-wide text-blue-300">

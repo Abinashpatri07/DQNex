@@ -7,7 +7,7 @@ import heroBg from "../../../assets/Industry/ManufacturingHome.png";
 
 const MfgHero = () => {
   return (
-    <section className="relative flex w-full min-h-[calc(100vh-64px)] items-center overflow-hidden bg-[#050d1c] px-6 pt-[64px] font-sans md:px-10 lg:min-h-[600px] lg:aspect-[2.55/1] lg:px-14">
+    <section className="relative flex w-full min-h-[calc(100vh-64px)] items-center overflow-hidden bg-transparent px-6 pt-[64px] font-sans md:px-10 lg:min-h-[600px] lg:aspect-[2.55/1] lg:px-14">
       {/* Background image (robot arm, factory, dashboard sab image me hain) */}
       <img
         src={heroBg}

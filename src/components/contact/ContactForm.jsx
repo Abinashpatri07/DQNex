@@ -196,7 +196,10 @@ const ContactForm = () => {
           <Pill>Get in Touch</Pill>
 
           <h2 className="mb-6 mt-5 text-[28px] font-medium leading-tight text-white md:text-[34px]">
-            Send Us a <span className="text-[#8fd3ee]">Message</span>
+            Send Us a{" "}
+            <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">
+              Message
+            </span>
           </h2>
 
           <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
@@ -411,7 +414,10 @@ const ContactForm = () => {
           <Pill>Way to Reach Us</Pill>
 
           <h2 className="mb-6 mt-5 text-[28px] font-medium leading-tight text-white md:text-[34px]">
-            We're Here to <span className="text-[#8fd3ee]">Help</span>
+            We're Here to{" "}
+            <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">
+              Help
+            </span>
           </h2>
 
           <div className="flex flex-col gap-4">

@@ -4,7 +4,12 @@ import { Link } from "react-router-dom";
 const AboutCTA = () => {
   return (
     <section className="about-cta">
-      <h2 className="about-cta__title">Let's Build What's Next</h2>
+      <h2 className="about-cta__title">
+        Let's Build{" "}
+        <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">
+          What's Next
+        </span>
+      </h2>
       <p className="about-cta__sub">
         Partner with DQNeX to transform your business with reliable,
         scalable, and innovative IT solutions.

@@ -110,7 +110,7 @@ const VnxDeploy = () => {
             <p className="m-0 text-[12px] font-medium text-[#7fb0f0]">Fast to Deploy</p>
             <h2 className="m-0 mt-1 text-[28px] font-medium leading-[1.35] text-white md:text-[32px] lg:text-[34px] lg:leading-[56px]">
               Live in{" "}
-              <span className="bg-gradient-to-r from-[#5db7ea] to-[#7fd0ee] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">
                 15 Days
               </span>
               <br />

@@ -81,14 +81,14 @@ const VnxFlow = () => {
     <section className="relative w-full overflow-hidden bg-transparent px-6 py-8 md:py-10 md:px-10 font-sans">
       <div className="mx-auto max-w-[1100px] text-center">
         {/* BADGE */}
-        <span className="inline-flex items-center rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-1.5 text-[12px] font-medium tracking-wide text-blue-300">
+        <span className="inline-block text-[13px] font-medium tracking-wide text-blue-300">
           How Verify NeX Works
         </span>
 
         {/* HEADING */}
         <h2 className="mt-9 text-[28px] font-semibold leading-tight text-white md:text-[34px] lg:text-[40px]">
           From Candidate to Verified - In{" "}
-          <span className="bg-gradient-to-r from-[#5db7ea] to-[#7fd0ee] bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">
             One Simple Flow
           </span>
         </h2>

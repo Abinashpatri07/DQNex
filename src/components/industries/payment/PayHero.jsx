@@ -40,7 +40,7 @@ const PayHero = () => {
             Secure Smarter
             <br />
             Payments for{" "}
-            <span className="text-[#5ec4e0]">Digital World</span>
+            <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">Digital World</span>
           </h1>
 
           <p className="mb-9 max-w-[420px] text-[14px] leading-[1.6] text-white/90 [text-shadow:0_1px_8px_rgba(5,13,28,0.9)]">

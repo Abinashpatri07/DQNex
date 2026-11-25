@@ -21,7 +21,7 @@ const WhoWeAre = () => {
         <div className="flex w-full flex-col">
           {/* BADGE */}
           <div className="shrink-0">
-            <span className="inline-flex items-center rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-1.5 text-[12px] font-medium tracking-wide text-blue-300">
+            <span className="inline-block text-[13px] font-medium tracking-wide text-blue-300">
               Our Overview
             </span>
           </div>
@@ -29,7 +29,7 @@ const WhoWeAre = () => {
           {/* HEADING */}
           <h2 className="mt-4 shrink-0 text-[26px] font-medium leading-none tracking-[-1.5px] text-white md:text-[32px] lg:text-[36px]">
             Who{" "}
-            <span className="bg-gradient-to-r from-blue-600 via-purple-400 to-orange-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">
               We Are
             </span>
           </h2>

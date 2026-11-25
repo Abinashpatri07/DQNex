@@ -46,7 +46,7 @@ const PaymentChallenges = () => {
     <section className="w-full overflow-hidden bg-gradient-to-br from-[#050d1c] via-[#061426] to-[#071a33] px-6 py-16 font-sans md:px-10 lg:px-14">
       <div className="mx-auto max-w-[1300px]">
         {/* Badge (panel ke bahar, upar) */}
-        <div className="mb-6 inline-block rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-1.5 text-[12px] font-medium tracking-wide text-blue-300">
+        <div className="mb-6 inline-block text-[13px] font-medium tracking-wide text-blue-300">
           Challenges
         </div>
 
@@ -57,7 +57,7 @@ const PaymentChallenges = () => {
             <div>
               <h2 className="mb-5 text-[30px] font-semibold leading-[1.15] text-white md:text-[34px]">
                 Payment Challenges <br />
-                <span className="text-[#5ec4e0]">We Solve</span>
+                <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">We Solve</span>
               </h2>
 
               <p className="max-w-[360px] text-[14px] leading-[1.5] text-white/90">

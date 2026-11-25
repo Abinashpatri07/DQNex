@@ -60,7 +60,7 @@ const AdvHero = () => {
         <div className="relative z-10 mx-auto max-w-[1500px] text-center">
           <h1 className="mb-6 text-[28px] font-semibold leading-tight text-white md:text-[34px] lg:text-[44px]">
             Turn Technology Into <br className="hidden md:block" />
-            <span className="bg-gradient-to-r from-blue-600 via-purple-400 to-orange-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">
               Strategic Advantage
             </span>
           </h1>
@@ -86,13 +86,13 @@ const AdvHero = () => {
       {/* ───────── CAPABILITIES (plain background, image nahi) ───────── */}
       <div className="w-full bg-gradient-to-b from-[#061423] via-[#040e1b] to-[#0a1828] px-7 pb-10 pt-6 sm:px-8 md:px-10 md:pb-16 lg:px-12 lg:pb-24 xl:px-14">
         <div className="mx-auto flex max-w-[1500px] flex-col items-center">
-          <span className="mb-6 inline-flex items-center rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-1.5 text-[12px] font-medium tracking-wide text-blue-300">
+          <span className="mb-6 inline-block text-[13px] font-medium tracking-wide text-blue-300">
             Our Advisory Service
           </span>
 
           <h2 className="mb-4 text-center text-[26px] font-medium text-white md:text-[32px] lg:text-[36px]">
             Strategic{" "}
-            <span className="bg-gradient-to-r from-blue-600 via-purple-400 to-orange-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">
               Advisory
             </span>
             <br className="hidden md:block" />

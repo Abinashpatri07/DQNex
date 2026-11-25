@@ -25,7 +25,7 @@ const AICTA = () => {
           <p className="text-[#8aa0bc] text-sm font-medium mb-3">Ready to builds with AI?</p>
           <h2 className="mb-6 text-[26px] font-semibold leading-tight text-white md:text-[30px] lg:text-[36px]">
             Let's Create {" "}
-            <span className="bg-gradient-to-r from-blue-600 via-purple-400 to-orange-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">
               Intelligent <br className="hidden md:block" />
               Solutions
             </span>

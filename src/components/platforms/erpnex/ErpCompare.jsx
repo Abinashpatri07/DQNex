@@ -148,7 +148,7 @@ const ErpCompare = () => {
         <div className="relative px-5 pb-8 pt-6 md:px-8">
           {/* Badge */}
           <div className="flex justify-center">
-            <span className="rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-1.5 text-[12px] font-medium tracking-wide text-blue-300">
+            <span className="inline-block text-[13px] font-medium tracking-wide text-blue-300">
               Why Choose CORRNeX
             </span>
           </div>
@@ -157,7 +157,7 @@ const ErpCompare = () => {
           <div className="mt-6 text-center">
             <h2 className="text-[28px] font-semibold leading-tight text-white md:text-[34px]">
               Why Choose{" "}
-              <span className="bg-gradient-to-r from-[#1D4ED8] via-[#5264C9] to-[#F39301] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">
                 CORRNeX?
               </span>
             </h2>

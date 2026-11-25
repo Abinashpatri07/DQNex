@@ -25,7 +25,7 @@ const AboutHero = () => {
       <div className="relative z-10 w-full max-w-[900px]">
         <h1 className="mb-5 text-[28px] font-semibold tracking-tight text-white md:text-[34px] lg:text-[44px]">
           About{" "}
-          <span className="bg-gradient-to-r from-blue-600 via-purple-400 to-orange-500 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">
             Us
           </span>
         </h1>

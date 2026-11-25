@@ -158,13 +158,13 @@ const CoreValues = () => {
 
       {/* HEADING */}
       <div className="relative z-10 mx-auto max-w-[1500px] text-center">
-        <span className="relative z-10 inline-flex items-center rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-1.5 text-[12px] font-medium tracking-wide text-blue-300">
+        <span className="relative z-10 inline-block text-[13px] font-medium tracking-wide text-blue-300">
           Core Values
         </span>
 
         <h2 className="mt-5 text-3xl font-semibold leading-tight tracking-[-1px] text-white md:text-[42px]">
           The principles behind{" "}
-          <span className="bg-gradient-to-r from-blue-600 via-purple-400 to-orange-500 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">
             everything we build.
           </span>
         </h2>

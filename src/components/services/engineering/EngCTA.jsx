@@ -30,7 +30,7 @@ const EngCTA = () => {
               <span className="text-white">Next</span>
               <br className="hidden md:block" />
               {" "}
-              <span className="bg-gradient-to-r from-blue-600 via-purple-400 to-orange-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">
                 Digital Solution
               </span>
             </h2>

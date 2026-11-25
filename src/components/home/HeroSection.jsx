@@ -178,7 +178,7 @@ const HeroSection = () => {
 
   return (
     <section
-      className="relative flex min-h-[92vh] w-full flex-col items-center justify-start overflow-hidden pb-20 pt-[125px] font-sans md:pt-[135px]"
+      className="relative flex min-h-[82vh] w-full flex-col items-center justify-start overflow-hidden pb-10 pt-[120px] font-sans md:pt-[130px]"
       style={{
         background:
           "radial-gradient(ellipse 95% 75% at 50% 45%, #1e3052 0%, #121e36 42%, #0a1322 75%, transparent 100%)",

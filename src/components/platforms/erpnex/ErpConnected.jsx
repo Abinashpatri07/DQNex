@@ -80,7 +80,7 @@ const weekSteps = [
 ];
 
 const Pill = ({ children }) => (
-  <span className="inline-flex items-center rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-1.5 text-[12px] font-medium tracking-wide text-blue-300">
+  <span className="inline-block text-[13px] font-medium tracking-wide text-blue-300">
     {children}
   </span>
 );
@@ -96,7 +96,7 @@ const ErpConnected = () => {
           <Pill>Our Flow</Pill>
           <h2 className="mt-7 text-[26px] font-medium leading-tight text-white md:text-[34px] lg:text-[38px]">
             From Order to Billing —{" "}
-            <span className="bg-gradient-to-r from-[#1D4ED8] via-[#5264C9] to-[#F39301] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">
               One Connected Flow
             </span>
           </h2>
@@ -134,7 +134,7 @@ const ErpConnected = () => {
             <Pill>One Connected Flow</Pill>
             <h2 className="mt-8 text-[26px] font-medium leading-tight text-white md:text-[34px] lg:text-[38px]">
               Everyone Works From the{" "}
-              <span className="bg-gradient-to-r from-[#1D4ED8] via-[#5264C9] to-[#F39301] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">
                 Same Number
               </span>
             </h2>
@@ -188,7 +188,7 @@ const ErpConnected = () => {
                 <p className="text-[11px] text-[#7db4ec]">The ERPNeX Go-LIVE Method</p>
                 <h2 className="mt-4 text-[28px] font-medium leading-[1.3] text-white md:text-[34px]">
                   Live in{" "}
-                  <span className="bg-gradient-to-r from-[#1D4ED8] via-[#5264C9] to-[#F39301] bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">
                     30 days
                   </span>
                   <br />

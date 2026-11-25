@@ -14,13 +14,15 @@ const OptWhy = () => {
 
         {/* Right Content Area */}
         <div className="w-full lg:w-1/2">
-          <span className="inline-flex items-center rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-1.5 text-[12px] font-medium tracking-wide text-blue-300 mb-6">
+          <span className="inline-block text-[13px] font-medium tracking-wide text-blue-300 mb-6">
             Why Optimization Matters
           </span>
 
           <h2 className="text-[26px] md:text-[32px] font-medium text-white leading-tight mb-4">
             Make Technology <br />
-            Perform at Its Best
+            <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">
+              Perform at Its Best
+            </span>
           </h2>
 
           <p className="text-[13px] text-[#c8d1dc] mb-10 max-w-[550px]">

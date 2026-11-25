@@ -15,12 +15,12 @@ const AIWhy = () => {
 
         {/* Right Content Area */}
         <div className="w-full lg:w-1/2">
-          <span className="inline-flex items-center rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-1.5 text-[12px] font-medium tracking-wide text-blue-300 mb-6">
+          <span className="inline-block text-[13px] font-medium tracking-wide text-blue-300 mb-6">
             Why AI Engineering
           </span>
           <h2 className="mb-4 text-[26px] font-medium leading-tight text-white md:text-[32px]">
             Turn Possibilities Into <br />
-            <span className="bg-gradient-to-r from-blue-600 via-purple-400 to-orange-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">
               Real Business
             </span>{" "}
             Value

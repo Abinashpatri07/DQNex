@@ -202,7 +202,7 @@ const ContactSection = ({ showTop = false }) => {
         }
       `}</style>
 
-      <section className="w-full max-w-[1500px] mx-auto pt-16 pb-8 px-7 sm:px-8 md:px-10 lg:px-12 xl:px-14 text-white font-sans flex flex-col gap-8">
+      <section className="w-full max-w-[1500px] mx-auto pt-10 pb-8 px-7 sm:px-8 md:px-10 lg:px-12 xl:px-14 text-white font-sans flex flex-col gap-8">
 
         {/* Top Section */}
         {showTop && (
@@ -213,7 +213,7 @@ const ContactSection = ({ showTop = false }) => {
             <div className="relative z-10 text-center mb-10">
               <h2 className="text-[26px] font-semibold leading-tight text-white md:text-[30px] lg:text-[36px]">
                 Let's Build{" "}
-                <span className="bg-gradient-to-r from-blue-600 via-purple-400 to-orange-500 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">
                   What's Next
                 </span>
               </h2>
@@ -472,7 +472,7 @@ const ContactSection = ({ showTop = false }) => {
 
             <h3 className="text-[26px] font-semibold leading-tight text-white md:text-[30px] lg:text-[36px]">
               Subscribe to{" "}
-              <span className="bg-gradient-to-r from-blue-600 via-purple-400 to-orange-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">
                 our Newsletter
               </span>
             </h3>

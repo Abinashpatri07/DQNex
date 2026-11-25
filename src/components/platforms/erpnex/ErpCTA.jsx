@@ -31,7 +31,7 @@ const ErpCTA = () => {
             <h2 className="text-[32px] font-medium leading-[1.25] text-white md:text-[38px]">
               See your plant on CORRNeX
               <br />
-              <span className="bg-gradient-to-r from-[#1D4ED8] via-[#5264C9] to-[#F39301] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">
                 in just 30 minutes
               </span>
             </h2>

@@ -26,7 +26,9 @@ const OptCTA = () => {
             <p className="text-[#8aa0bc] text-sm font-medium mb-3">Ready to Optimize?</p>
             <h2 className="text-[26px] md:text-[30px] lg:text-[36px] font-semibold text-white mb-6 leading-tight">
               Let's Build a More <br className="hidden md:block" />
-              Reliable Tomorrow
+              <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">
+                Reliable Tomorrow
+              </span>
             </h2>
             <p className="text-[13px] text-[#c8d1dc] mb-10 max-w-[500px]">
               Partner with DQNeX for proactive support, managed services and quality engineering and keep your digital business running at its best.

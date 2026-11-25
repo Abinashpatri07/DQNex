@@ -83,14 +83,14 @@ const ErpFlow = () => {
     <section className="relative w-full overflow-hidden bg-transparent px-6 py-20 font-sans md:px-10">
       <div className="mx-auto max-w-[1100px] text-center">
         {/* BADGE */}
-        <span className="inline-flex items-center rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-1.5 text-[12px] font-medium tracking-wide text-blue-300">
+        <span className="inline-block text-[13px] font-medium tracking-wide text-blue-300">
           How CORRNeX Works
         </span>
 
         {/* HEADING */}
         <h2 className="mt-9 text-[28px] font-semibold leading-tight text-white md:text-[34px] lg:text-[40px]">
           From Order to Delivery - In a{" "}
-          <span className="bg-gradient-to-r from-[#1D4ED8] to-[#F39301] bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">
             Simple Flow
           </span>
         </h2>

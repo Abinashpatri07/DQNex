@@ -18,7 +18,10 @@ const ContactLocation = () => {
           <Pill>Our Office Location</Pill>
 
           <h2 className="mb-3 mt-5 text-[30px] font-medium leading-tight text-white md:text-[36px]">
-            Visit Our <span className="text-[#8fd3ee]">Office</span>
+            Visit Our{" "}
+            <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">
+              Office
+            </span>
           </h2>
 
           <p className="mb-5 max-w-[400px] text-[13px] leading-[1.35] text-white/90">

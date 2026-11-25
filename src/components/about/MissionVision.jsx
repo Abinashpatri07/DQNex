@@ -80,7 +80,7 @@ const tags = [
 ];
 
 const Badge = ({ children }) => (
-  <span className="relative z-10 inline-flex items-center rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-1.5 text-[12px] font-medium tracking-wide text-blue-300">
+  <span className="relative z-10 inline-block text-[13px] font-medium tracking-wide text-blue-300">
     {children}
   </span>
 );

@@ -46,14 +46,16 @@ const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section className="mx-auto w-full max-w-[1200px] bg-transparent px-6 py-16 font-sans text-white md:px-10 lg:px-14">
+    <section className="mx-auto w-full max-w-[1200px] bg-transparent px-6 py-10 md:py-12 font-sans text-white md:px-10 lg:px-14">
       {/* Heading */}
       <div className="mb-14 md:mb-16">
         <h2 className="text-[32px] font-normal leading-[1.2] md:text-[42px]">
           You got questions?
         </h2>
-        <h2 className="text-[32px] font-normal leading-[1.2] text-[#FFC76A] md:text-[42px]">
-          We got answers.
+        <h2 className="text-[32px] font-normal leading-[1.2] md:text-[42px]">
+          <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">
+            We got answers.
+          </span>
         </h2>
       </div>
 

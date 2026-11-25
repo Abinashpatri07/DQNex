@@ -28,7 +28,7 @@ const PaymentCTA = () => {
 
           <h2 className="mb-5 text-[28px] font-semibold leading-[1.15] text-white md:text-[34px]">
             Ready to Build Your <br />
-            <span className="text-[#5ec4e0]">Payment Solution?</span>
+            <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">Payment Solution?</span>
           </h2>
 
           <p className="mb-12 max-w-[360px] text-[13px] leading-[1.6] text-white/90 [text-shadow:0_1px_8px_rgba(5,13,28,0.9)]">

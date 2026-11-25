@@ -81,13 +81,13 @@ const DigitalCommerce = () => {
 
           {/* Right Content */}
           <div>
-            <div className="mb-8 inline-block rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-1.5 text-[12px] font-medium tracking-wide text-blue-300">
+            <div className="mb-8 inline-block text-[13px] font-medium tracking-wide text-blue-300">
               E-Commerce Industry
             </div>
 
             <h2 className="mb-6 text-[28px] font-semibold leading-[1.15] text-white md:text-[34px]">
               Digital Commerce for a <br />
-              <span className="text-[#5ec4e0]">Connected World</span>
+              <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">Connected World</span>
             </h2>
 
             <p className="max-w-[600px] text-[14px] leading-[1.6] text-white/85">

@@ -75,7 +75,7 @@ const VnxWorkspace = () => {
         {/* HEADING */}
         <h2 className="relative z-10 text-[26px] font-medium leading-tight text-white md:text-[32px] lg:text-[38px]">
           Manage every verification in{" "}
-          <span className="bg-gradient-to-r from-[#5db7ea] to-[#7fd0ee] bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">
             one workspace
           </span>
         </h2>

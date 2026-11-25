@@ -152,7 +152,7 @@ const WhyDQNeX = () => {
       {/* ── PINNED HEADING (sirf desktop par sticky) ───────────── */}
       <div
         ref={headingRef}
-        className="z-10 flex flex-col items-center px-6 pb-16 pt-28 text-center lg:sticky lg:top-0"
+        className="z-10 flex flex-col items-center px-6 pb-10 pt-14 text-center lg:sticky lg:top-0"
       >
         <span className="text-[13px] font-medium tracking-wide text-blue-300">
           Why DQNeX Exists
@@ -160,7 +160,7 @@ const WhyDQNeX = () => {
 
         <h2 className="mt-7 text-[26px] font-medium leading-tight text-white md:text-[32px] lg:text-[36px]">
           Technology Built Around{" "}
-          <span className="bg-gradient-to-r from-blue-600 via-purple-400 to-orange-500 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">
             Your Business Needs
           </span>
         </h2>

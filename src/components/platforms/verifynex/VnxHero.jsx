@@ -80,7 +80,7 @@ const VnxHero = () => {
           <h1 className="mb-5 text-[30px] font-semibold leading-[1.15] text-white md:text-[38px] lg:text-[44px]">
             Verify Every Profile
             <br />
-            Hire With <span className="text-[#5ec4e0]">Confidence</span>
+            Hire With <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">Confidence</span>
           </h1>
 
           <p className="mb-9 max-w-[390px] text-[14px] leading-[1.6] text-white/90">

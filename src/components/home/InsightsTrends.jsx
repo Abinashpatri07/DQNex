@@ -63,7 +63,7 @@ const InsightsTrends = () => {
   }, [cards.length]);
 
   return (
-    <section className="mx-auto flex w-full max-w-[1500px] flex-col items-start justify-between overflow-hidden bg-transparent px-7 py-16 text-white sm:px-8 md:px-10 lg:min-h-[100svh] lg:flex-row lg:items-center lg:px-12 xl:px-14">
+    <section className="mx-auto flex w-full max-w-[1500px] flex-col items-start justify-between overflow-hidden bg-transparent px-7 py-12 text-white sm:px-8 md:px-10 lg:flex-row lg:items-center lg:px-12 xl:px-14">
       {/* Left Content (thoda right side me shift) */}
       <div className="z-10 mb-12 flex w-full flex-col items-start gap-8 lg:mb-0 lg:w-1/2 lg:pl-12 xl:pl-24">
         <span className="text-[13px] font-medium tracking-wide text-blue-300">
@@ -72,7 +72,7 @@ const InsightsTrends = () => {
 
         <h2 className="max-w-lg text-3xl font-semibold leading-tight text-white md:text-4xl lg:text-[42px]">
           Ideas shaping the{" "}
-          <span className="bg-gradient-to-r from-blue-600 via-purple-400 to-orange-500 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">
             future of technology.
           </span>
         </h2>

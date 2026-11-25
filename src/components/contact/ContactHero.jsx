@@ -36,7 +36,7 @@ const ContactHero = () => {
           <h1 className="mb-5 text-[30px] font-semibold leading-[1.15] text-white md:text-[38px] lg:text-[44px]">
             Let's Build What's Next
             <br />
-            <span className="text-[#7cc4e0]">Together</span>
+            <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">Together</span>
           </h1>
 
           <p className="mb-12 max-w-[470px] text-[14px] leading-[1.6] text-white/90 [text-shadow:0_1px_8px_rgba(5,13,28,0.9)]">

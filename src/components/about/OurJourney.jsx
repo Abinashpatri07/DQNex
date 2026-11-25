@@ -53,13 +53,16 @@ const OurJourney = () => {
         </div>
 
         {/* ── BADGE ── */}
-        <span className="relative z-10 inline-flex items-center rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-1.5 text-[12px] font-medium tracking-wide text-blue-300">
+        <span className="relative z-10 inline-block text-[13px] font-medium tracking-wide text-blue-300">
           Our Journey
         </span>
 
         {/* ── TITLE ── */}
         <h2 className="relative z-10 mt-8 text-[24px] font-normal leading-tight text-white">
-          Mile Stone That Matter
+          Mile Stone{" "}
+          <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">
+            That Matter
+          </span>
         </h2>
 
         {/* ── TIMELINE ── */}

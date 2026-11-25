@@ -27,7 +27,7 @@ const MfgCTA = () => {
 
           <h2 className="mb-5 text-[30px] font-medium leading-[1.2] text-white md:text-[38px]">
             Ready to Build a Smarter <br />
-            <span className="text-[#7cc4e0]">Manufacturing Operation?</span>
+            <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">Manufacturing Operation?</span>
           </h2>
 
           <p className="mb-14 max-w-[420px] text-[14px] leading-[1.35] text-white/90">

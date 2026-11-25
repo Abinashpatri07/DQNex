@@ -7,16 +7,16 @@ const EngProcess = () => {
 
         {/* Process Section */}
         <div className="mb-20">
-          <span className="inline-flex items-center rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-1.5 text-[12px] font-medium tracking-wide text-blue-300 mb-6">
+          <span className="inline-block text-[13px] font-medium tracking-wide text-blue-300 mb-6">
             Our Approach
           </span>
           <h2 className="mb-10 text-[26px] font-medium text-white md:text-[32px]">
             From{" "}
-            <span className="bg-gradient-to-r from-blue-600 via-purple-400 to-orange-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">
               Idea
             </span>{" "}
             to{" "}
-            <span className="bg-gradient-to-r from-blue-600 via-purple-400 to-orange-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">
               Impact
             </span>
           </h2>
@@ -85,12 +85,12 @@ const EngProcess = () => {
         {/* Impact Section */}
         <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-10">
           <div className="max-w-[450px]">
-            <span className="inline-flex items-center rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-1.5 text-[12px] font-medium tracking-wide text-blue-300 mb-6">
+            <span className="inline-block text-[13px] font-medium tracking-wide text-blue-300 mb-6">
               Our Impact
             </span>
             <h2 className="mb-4 text-[26px] font-medium text-white md:text-[32px]">
               Creating Real{" "}
-              <span className="bg-gradient-to-r from-blue-600 via-purple-400 to-orange-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">
                 Business Outcomes
               </span>
             </h2>

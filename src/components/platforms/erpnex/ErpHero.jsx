@@ -87,7 +87,7 @@ const ErpHero = () => {
             Simplify Operations
             <br />
             Scale{" "}
-            <span className="bg-gradient-to-r from-[#1D4ED8] to-[#F39301] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">
               Your Business
             </span>
           </h1>

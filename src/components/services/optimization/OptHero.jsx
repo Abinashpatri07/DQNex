@@ -53,7 +53,7 @@ const OptHero = () => {
         <div className="relative z-10 mx-auto max-w-[1500px] text-center">
           <h1 className="mb-6 text-[28px] font-semibold leading-tight text-white md:text-[34px] lg:text-[44px]">
             Optimize Today for a <br className="hidden md:block" />
-            <span className="bg-gradient-to-r from-blue-600 via-purple-400 to-orange-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">
               Stronger Tomorrow
             </span>
           </h1>
@@ -78,12 +78,12 @@ const OptHero = () => {
       {/* ─── CAPABILITIES SECTION (clean dark background, NO image) ─── */}
       <section className="relative w-full bg-[#040e1b] px-7 pb-10 pt-6 font-sans sm:px-8 md:px-10 md:pb-16 lg:px-12 lg:pb-24 xl:px-14">
         <div className="mx-auto flex max-w-[1500px] flex-col items-center text-center">
-          <span className="mb-6 inline-flex items-center rounded-full border border-blue-400/30 bg-blue-500/10 px-4 py-1.5 text-[12px] font-medium tracking-wide text-blue-300">
+          <span className="mb-6 inline-block text-[13px] font-medium tracking-wide text-blue-300">
             Our Optimization Service
           </span>
           <h2 className="mb-4 text-[26px] font-medium text-white md:text-[32px] lg:text-[36px]">
             End-to-End{" "}
-            <span className="bg-gradient-to-r from-blue-600 via-purple-400 to-orange-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-500 via-purple-400 to-orange-400 bg-clip-text text-transparent">
               Optimization
             </span>
             <br className="hidden md:block" />

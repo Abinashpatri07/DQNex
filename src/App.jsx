@@ -17,6 +17,8 @@ import Payment from "./pages/Industries/Payment";
 import Manufacturing from "./pages/Industries/Manufacturing";
 import Contact from "./pages/Contact/Contact";
 import ComingSoon from "./pages/ComingSoon/ComingSoon";
+import Career from "./pages/Career/Career";
+import Blog from "./pages/Blog/Blog";
 
 const App = () => {
   return (
@@ -72,9 +74,9 @@ const App = () => {
         <Route path="/industries" element={<ComingSoon title="Industries" />} />
 
         {/* CAREER, SOLUTIONS & BLOG */}
-        <Route path="/career" element={<ComingSoon title="Career" />} />
+        <Route path="/career" element={<Career />} />
         <Route path="/solutions" element={<ComingSoon title="Solutions" />} />
-        <Route path="/blog" element={<ComingSoon title="Blog" />} />
+        <Route path="/blog" element={<Blog />} />
 
         {/* FOOTER SERVICE & LEGAL PAGES */}
         <Route

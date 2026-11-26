@@ -75,6 +75,28 @@ export const scheduleMeeting = async (meetingData) => {
   return data;
 };
 
+export const submitCareerApplication = async (applicationData) => {
+  const baseUrl = getApiBaseUrl();
+  const response = await fetch(`${baseUrl}/careers/apply`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(applicationData),
+  });
+
+  const data = await response.json().catch(() => ({}));
+
+  if (!response.ok) {
+    throw new Error(
+      data.message ||
+        `Server responded with error (${response.status}). Please check SMTP backend.`
+    );
+  }
+
+  return data;
+};
+
 export const submitNewsletter = async (email) => {
   const baseUrl = getApiBaseUrl();
 
